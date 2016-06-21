@@ -4,7 +4,7 @@
 ## 国际牛人
 
 ### 1.Chris Coyier
-![Chris Coyier](https://assets.codepen.io/assets/about/about-chriscoyier-bc08ec4433f3b39fe8a4a6d875981c8a.jpg)
+![Chris Coyier](https://avatars3.githubusercontent.com/u/69156?v=3&s=460)
 
 [个人主页](http://chriscoyier.net/)，[Codepen](http://codepen.io/)创始人，[css-tricks](http://css-tricks.com/)站长。
 
