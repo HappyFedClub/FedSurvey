@@ -8,4 +8,11 @@
 
 [个人主页](http://chriscoyier.net/)，[Codepen](http://codepen.io/)创始人，[css-tricks](http://css-tricks.com/)站长。
 
+联系方式：
+[CodePen](//codepen.io/chriscoyier)
+[Dribbble](//dribbble.com/chriscoyier)
+[Twitter](//twitter.com/chriscoyier)
+[GitHub](//github.com/chriscoyier)
+[Instagram](//instagram.com/chriscoyier)
 
+可以[这里](http://chriscoyier.net/contact/)写信，或者[这里注册留言](https://css-tricks.com/forums/)。
