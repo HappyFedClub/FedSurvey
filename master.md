@@ -1,8 +1,3 @@
-<style>
-.markdown-body img{
-max-width:300px;
-}
-</style>
 # 访谈对象
 国内外前端牛人（genius）专家（master）搜集，视野所限，未必全面，仅供参考。
 
