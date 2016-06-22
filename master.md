@@ -50,3 +50,20 @@ Lebanon（黎巴嫩）。
 [Google+](https://plus.google.com/101697878480386449961)
 
 可以[这里](https://github.com/hugogiraudel/ama)新建Issues提问他。
+
+### 4. Lea Verou
+![Lea Verou](http://lea.verou.me/wp-content/uploads/2011/05/smiling.jpg)
+
+[个人主页](http://lea.verou.me/)，网页设计师、前端开发者、技术极客、演讲家、作家，麻省理工学院计算机与人工智能实验室助理研究员，《CSS Secrets》作者，在世界各地进行过60多长演讲，一个[简历](http://lea.verou.me/cv.html)。
+
+希腊人，现居美国马萨诸塞州剑桥市（大波士顿地区）。
+
+联系方式：
+[Twitter](http://twitter.com/leaverou)
+[Facebook](http://www.facebook.com/leaverou)
+[Github](https://github.com/LeaVerou)
+[Dribbble](http://dribbble.com/LeaVerou)
+
+可以lea＠verou.me联系他
+
+### 5.
