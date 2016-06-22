@@ -2,7 +2,6 @@
 国内外前端牛人（genius）专家（master）搜集，视野所限，未必全面，仅供参考。
 
 ## 国际牛人
-
 ### 1.Chris Coyier
 ![Chris Coyier](https://avatars3.githubusercontent.com/u/69156?v=3&s=460)
 
@@ -72,36 +71,26 @@ Lebanon（黎巴嫩）。
 ## 国内牛人
 ### 1. 阮一峰
 
+### 2. 玉伯
 
-### 2. 司徒正美
+### 3. 司徒正美
 
+### 4. CSS魔法
 
-### 3. CSS魔法
+### 5. 大漠
 
+### 6. 一丝
 
-### 4. 大漠
+### 7. 勾三股四
 
+### 8. 张鑫旭
 
-### 5. 一丝
+### 9. 杜瑶
 
-
-### 6. 勾三股四
-
-
-### 7. 张鑫旭
-
-
-### 8. 杜瑶
-
-
-### 9. 颜海镜
-
-
-### 10.周文斌
+### 10. 颜海镜
 
 
 ### 11.张云龙
-
 
 ### 12.神飞
 ![神飞](https://www.qianduan.net/content/images/2015/10/avatar.jpg)
@@ -110,7 +99,6 @@ Lebanon（黎巴嫩）。
 
 联系方式：
 [Twitter](http://twitter.com/qianduan)
-[Github]()
 
 邮件联系admin@qianduan.net
 
@@ -131,7 +119,7 @@ Lebanon（黎巴嫩）。
 
 
 ### 16.吴多益
-百度前端团队
+百度前端团队成员
 [个人主页](http://wuduoyi.com/)
 [Github](https://github.com/nwind/)
 [Twitter](http://twitter.com/nwind/)
@@ -161,6 +149,27 @@ w3cTrain成员
 
 
 ### 21.小鱼
+
+### 22.周文斌
+
+### 23.薛端阳
+
+### 24.yiminghe
+![yiminghe](https://avatars2.githubusercontent.com/u/200876?v=3&s=460)
+
+[个人主页](http://yiminghe.me/)
+
+### 25.
+
+### 26.
+
+### 27.
+
+### 28.
+
+### 29.
+
+### 30.
 
 
 
