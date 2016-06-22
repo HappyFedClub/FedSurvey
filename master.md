@@ -1,5 +1,6 @@
 # 访谈对象
 国内外前端牛人（genius）专家（master）搜集，视野所限，未必全面，仅供参考。
+排名不分先后。
 
 ## 国际牛人
 ### 1.Chris Coyier
@@ -76,14 +77,25 @@ Lebanon（黎巴嫩）。
 ### 3. 司徒正美
 
 ### 4. CSS魔法
+![CSS魔法](https://avatars1.githubusercontent.com/u/1231359?v=3&s=460)
+
+百姓网前端架构师，《CSS 揭秘》译者，微信公众号和微博都叫*CSS魔法*。
+
 
 ### 5. 大漠
 
 ### 6. 一丝
 
 ### 7. 勾三股四
+![勾三股四](http://img2.w3ctech.com/jiongks.jpg)
 
 ### 8. 张鑫旭
+
+### 9. 裕波
+![裕波](http://tva4.sinaimg.cn/crop.0.0.180.180.180/56c60675jw1e8qgp5bmzyj2050050aa8.jpg)
+
+[w3ctech.com](http://www.w3ctech.com/)发起人。
+
 
 ### 9. 杜瑶
 
@@ -102,9 +114,10 @@ Lebanon（黎巴嫩）。
 
 邮件联系admin@qianduan.net
 
-### 13.闲耘™
+### 13.赵雷
+![赵雷](https://avatars1.githubusercontent.com/u/157338?v=3&s=460)
 
-[Github](https://github.com/hotoo)
+百度资深研发工程师, [个人主页](http://zhaolei.info/), [微博](http://weibo.com/firede), [Github](https://github.com/firede)，可以微博私信他访谈。
 
 
 ### 14.尚左 mingelz
