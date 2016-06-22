@@ -67,3 +67,101 @@ Lebanon（黎巴嫩）。
 可以lea＠verou.me联系他
 
 ### 5.
+
+
+## 国内牛人
+### 1. 阮一峰
+
+
+### 2. 司徒正美
+
+
+### 3. CSS魔法
+
+
+### 4. 大漠
+
+
+### 5. 一丝
+
+
+### 6. 勾三股四
+
+
+### 7. 张鑫旭
+
+
+### 8. 杜瑶
+
+
+### 9. 颜海镜
+
+
+### 10.周文斌
+
+
+### 11.张云龙
+
+
+### 12.神飞
+![神飞](https://www.qianduan.net/content/images/2015/10/avatar.jpg)
+
+[个人主页](//www.qianduan.net),爱好前端设计与开发，崇尚一目了然的设计。现居深圳/广州，就职于腾讯微信设计团队。
+
+联系方式：
+[Twitter](http://twitter.com/qianduan)
+[Github]()
+
+邮件联系admin@qianduan.net
+
+### 13.闲耘™
+
+[Github](https://github.com/hotoo)
+
+
+### 14.尚左 mingelz
+
+[个人主页](//mingelz.com/)
+[Github](//github.com/mingelz)
+
+### 15.黄子毅
+
+[邮箱](576625322@qq.com)
+[个人主页](http://www.wokugame.com/)
+
+
+### 16.吴多益
+百度前端团队
+[个人主页](http://wuduoyi.com/)
+[Github](https://github.com/nwind/)
+[Twitter](http://twitter.com/nwind/)
+[微博](http://weibo.com/nwind/)
+
+### 17.廖雪峰
+
+
+### 18.周晓楷 Helkyle
+w3cTrain成员
+[个人主页](http://helkyle.com/)
+[微博](http://weibo.com/joueu)
+[邮件地址](helkylefighting@gmail.com)
+[Codepen](http://codepen.io/HelKyle/)
+[Github](https://github.com/HelKyle)
+
+### 19.尤小右
+![尤小右](https://avatars3.githubusercontent.com/u/499550?v=3&s=460)
+
+[个人主页](http://evanyou.me/)
+[微博](http://weibo.com/arttechdesign)
+[Twitter](https://twitter.com/youyuxi)
+[Github](https://github.com/yyx990803)
+
+
+### 20.聂微东
+
+
+### 21.小鱼
+
+
+
+
