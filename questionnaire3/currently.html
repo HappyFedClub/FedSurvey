@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作年限和对岗位的满意程度</title>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+    title: {
+        text: '工作年限和对岗位的满意程度'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['很满意','比较满意','一般','不满意']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['25岁以下','26-35岁','36-45岁','45岁以上']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'很满意',
+            type:'line',
+            stack: '',
+            data:[12,13,10,3]
+        },
+        {
+            name:'比较满意',
+            type:'line',
+            stack: '',
+            data:[22,12,19,3]
+        },
+        {
+            name:'一般',
+            type:'line',
+            stack: '总量',
+            data:[10,20,30,3]
+        },
+        {
+            name:'不满意',
+            type:'line',
+            stack: '总量',
+            data:[5,10,15,0]
+        },
+    ]
+};
+
+
+
+     myChart.setOption(option);
+    </script>
+</body>
+</html>

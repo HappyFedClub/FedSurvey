@@ -1,0 +1,121 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+}
+
+body {
+    background: #f7f7f7;
+    color: #333;
+    font-family: "Microsoft Yahei", helvetica;
+}
+
+.header {
+    background: #2695D0;
+    color: #ffffff;
+    width: 100%;
+    padding: 12px 0;
+}
+
+.header h1.title {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+h1.field {
+    line-height: 1.5;
+}
+.content{
+	line-height: 1.5;
+}
+.content .content_us {
+    padding: 20px 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.label .caption h1 {
+    margin: 20px 10px;
+}
+
+.contain {
+    margin: 20px 0;
+}
+
+.contain h1.field {
+    margin: 10px 10px;
+    font-size: 1.2em;
+    font-weight: bold !important;
+    padding-top: 10px;
+}
+
+.contain h1.field span.req {
+    color: red;
+}
+
+.grop {
+    border: 2px solid #d5d5d5;
+    padding: 0px 10px;
+    margin: 20px 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type=radio] {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+input {
+    margin: 5px 10px;
+    /*display: none;*/
+}
+
+.menu .caption h1 {
+    margin: 10px 0;
+}
+
+
+/*#NExt .button{
+  background: #007ead;
+}*/
+
+.footer {
+    background: #007ead;
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.footer h1.title {
+    text-align: center;
+}
+.footer .title a{
+    text-decoration: none;
+    font-size:1.5em;
+}
+
+
+
+
+
+
+.center{
+	width: 100%;
+	margin: auto;
+	font-size: 18px;
+	transition:all .5s;
+}
+@media (min-width: 1000px)  {
+	.center{
+		width: 1000px;
+		font-size: 14px;
+	}
+}
+
+
+
+

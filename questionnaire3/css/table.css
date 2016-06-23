@@ -1,0 +1,65 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+}
+.table {
+	position: relative;
+}
+.table ul li{
+	float: left;
+	margin: 0 5px 80px;
+	list-style-type: none;
+}
+.table ul li .one{
+	position: absolute;
+	font-size:20px;
+	left: 200px;
+	top:400px;
+	line-height: 20px;
+}
+.table ul li .two{
+	position: absolute;
+	font-size:20px;
+	left: 720px;
+	top:400px;
+	line-height: 20px;
+}
+.table ul li .there{
+	position: absolute;
+	font-size:20px;
+	left: 80px;
+	top:860px;
+	line-height: 20px;
+}
+.tabel ul li .four{
+	position: absolute;
+	font-size:20px;
+	left: 80px;
+	top:860px;
+	line-height: 20px;
+}
+.tabel ul li .five{
+	position: absolute;
+	font-size:20px;
+	left: 80px;
+	top:860px;
+	line-height: 20px;
+}
+.tabel ul li .six{
+	position: absolute;
+	font-size:20px;
+	left: 80px;
+	top:860px;
+	line-height: 20px;
+}
+.tabel ul li .seven{
+	position: absolute;
+	font-size:20px;
+	left: 80px;
+	top:860px;
+	line-height: 20px;
+}

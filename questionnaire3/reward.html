@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对公司制度是否满意</title>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+            title: {
+                text: '对公司是否满意'
+            },
+            tooltip: {},
+            legend: {
+                data:['']
+            },
+            xAxis: {
+                data: ["很满意","比较满意","一般","不满意"]
+            },
+            yAxis: {},
+            series: [{
+                name: '满意程度',
+                type: 'bar',
+                data: [5, 10, 8, 6]
+            }]
+        };
+
+
+     myChart.setOption(option);
+
+
+    </script>
+</body>
+</html>

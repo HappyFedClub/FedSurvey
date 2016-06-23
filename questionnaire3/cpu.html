@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 模块加载器</title>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Browserify','RequireJS','Webpack']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['了解','精通']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'Browserify',
+            type:'line',
+            stack: '总量',
+            data:[0, 13 ]
+        },
+        {
+            name:'RequireJS',
+            type:'line',
+            stack: '总量',
+            data:[2, 18 ]
+        },
+        {
+            name:'Webpack',
+            type:'line',
+            stack: '总量',
+            data:[5, 23]
+        }
+    ]
+};
+
+
+     myChart.setOption(option);
+    </script>
+</body>
+</html>
