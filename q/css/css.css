@@ -293,7 +293,7 @@ a:hover {
     display: inline-block;
     border-radius: 4px;
     position: relative;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
 }
@@ -368,6 +368,9 @@ a:hover {
     }
     .list {
         padding-left: 3rem;
+    }
+    .result .button {
+        font-size: 1rem;
     }
     #progress {
         width: 4rem;
