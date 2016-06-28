@@ -342,3 +342,14 @@ a:hover {
     width: 15rem;
     height: 15rem;
 }
+
+@media (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+    .header,
+    .content {
+        width: 100%;
+        padding: 1rem;
+    }
+}
