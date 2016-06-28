@@ -346,12 +346,12 @@ a:hover {
 @media (max-width: 768px) {
     body {
         font-size: 18px;
+        overflow-x: hidden;
     }
     .header,
     .content,
     .result {
         width: 100%;
-        padding: 1rem;
     }
     .list__item {
         margin: 0 0 .5rem 0;
