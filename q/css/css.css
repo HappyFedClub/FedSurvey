@@ -29,7 +29,7 @@
 }
 
 body {
-    font-size: 16px;
+    font-size: 18px;
     background: #f0f0f3;
     color: rgba(0, 0, 0, .8);
 }
@@ -62,7 +62,7 @@ a:hover {
 }
 
 .header h1 {
-    font: 24px/2 'Microsoft YaHei';
+    font: 2rem/2 'Microsoft YaHei';
     color: black;
     position: relative;
     display: inline-block;
@@ -345,7 +345,7 @@ a:hover {
 
 @media (max-width: 768px) {
     body {
-        font-size: 18px;
+        font-size: 24px;
         overflow-x: hidden;
     }
     .header,
