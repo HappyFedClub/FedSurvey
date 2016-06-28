@@ -348,7 +348,8 @@ a:hover {
         font-size: 18px;
     }
     .header,
-    .content {
+    .content,
+    .result {
         width: 100%;
         padding: 1rem;
     }
@@ -357,5 +358,12 @@ a:hover {
         padding: 0;
         width: 100%;
         float: none;
+    }
+    #progress {
+        width: 4rem;
+        height: 4rem;
+        position: fixed;
+        right: 10px;
+        top: 50px;
     }
 }
