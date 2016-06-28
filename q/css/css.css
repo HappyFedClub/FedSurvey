@@ -115,6 +115,8 @@ a:hover {
     z-index: 3;
     position: relative;
     transition: all .5s;
+    color: #16a085;
+    /*border-bottom: 1px solid #16a085;*/
 }
 
 .header .background-slide::after {
