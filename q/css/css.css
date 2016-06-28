@@ -353,6 +353,13 @@ a:hover {
     .result {
         width: 100%;
     }
+    .qList h3 {
+        left: 3rem;
+    }
+    .qList h3::before {
+        left: -3rem;
+        font: 1.2rem/1.2 'Bonbon', 'Mrs Saint Delafield', Arial;
+    }
     .list__item {
         margin: 0 0 .5rem 0;
         padding: 0;
