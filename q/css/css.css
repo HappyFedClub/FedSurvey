@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Bonbon);
-@import url(http://fonts.googleapis.com/css?family=Mrs+Saint+Delafield);
+@import url(http://fonts.useso.com/css?family=Bonbon);
+@import url(http://fonts.useso.com/css?family=Mrs+Saint+Delafield);
 .clearfix:after {
     visibility: hidden;
     display: block;
@@ -31,7 +31,7 @@
 body {
     font-size: 16px;
     background: #f0f0f3;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .8);
 }
 
 a {
@@ -144,26 +144,40 @@ a:hover {
 .qList {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, .05);
+    cursor: pointer;
 }
 
 .qList h3 {
     position: relative;
-    left: 4rem;
+    left: 5rem;
     counter-increment: listH 1;
+    transition: all .5s ease-out;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+}
+
+.qList h3:hover {
+    color: black;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
 }
 
 .qList h3::before {
     content: "#"counter(listH)". ";
     color: #16a085;
     position: absolute;
-    left: -4rem;
+    left: -5rem;
     top: -1rem;
-    font: 2rem/1.5 'Bonbon', 'Mrs Saint Delafield', cursive;
+    font: 2rem/1.5 'Bonbon', 'Mrs Saint Delafield', Arial;
+    opacity: 0.4;
+    transition: opacity .1s ease-out;
+}
+
+.qList:hover h3::before {
+    opacity: 1;
 }
 
 .list {
     margin-top: 20px;
-    padding-left: 4rem;
+    padding-left: 5rem;
 }
 
 .list__item {
@@ -177,8 +191,6 @@ a:hover {
 .label--radio {
     position: relative;
     margin: 1rem 0 0 .5rem;
-    font-family: Arial, sans-serif;
-    line-height: 1;
     cursor: pointer;
     display: block;
 }
@@ -258,24 +270,73 @@ a:hover {
 
 
 /*
-#progress进度条
+结果提交部分
 */
 
-
-/*#progress {
-    height: 4px;
-    background: -webkit-linear-gradient(left, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
-    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
-    position: fixed;
-    left: 0;
-    bottom: 0;
+.result {
+    width: 60rem;
+    margin: 30px auto;
 }
+
+.result .button {
+    border: none;
+    outline: none;
+    width: 42%;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    background-color: #16a085;
+    color: #f0f0f0;
+    margin: 0px 30px;
+    display: inline-block;
+    border-radius: 4px;
+    position: relative;
+    font-size: 1.5em;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.result .button:hover {
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.result .button:before,
+.result .button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0px;
+    height: 2px;
+    background: #16a085;
+    transition: all 0.4s ease;
+}
+
+.result .button:after {
+    top: inherit;
+    left: inherit;
+    bottom: 0;
+    right: 0;
+}
+
+.result .button:hover:before,
+.result .button:hover:after {
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    width: 100%;
+}
+
+
+/*
+#progress进度条
 */
 
 #progress {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 200px;
-    height: 200px;
+    right: 2rem;
+    bottom: 2rem;
+    width: 15rem;
+    height: 15rem;
 }

@@ -15,7 +15,7 @@
         <p>大牛们万安，我们是来自<a class="background-slide" href="http://zptc.cn" target="_blank">浙江邮电职业技术学院</a>的<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端俱乐部</a>，正在进行《前端开发行业现状调查》的暑期社会实践，恳请占用您几分钟时间，帮助我们了解前端开发行业现状，<em>万分感谢</em>！！</p>
     </header>
     <section class="content">
-        <form action="">
+        <form action="#">
             <div class="qList">
                 <h3>您的性别是？</h3>
                 <ul class="list clearfix">
@@ -266,70 +266,373 @@
                 <ul class="list clearfix">
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">Gulp
+                            <input type="checkbox" class="checkbox" name="automate">Gulp
                         </label>
                     </li>
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">Grunt
+                            <input type="checkbox" class="checkbox" name="automate">Grunt
                         </label>
                     </li>
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">npm run
+                            <input type="checkbox" class="checkbox" name="automate">npm run
                         </label>
                     </li>
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">Make
+                            <input type="checkbox" class="checkbox" name="automate">Make
                         </label>
                     </li>
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">Broccoli
+                            <input type="checkbox" class="checkbox" name="automate">Broccoli
                         </label>
                     </li>
                     <li class="list__item">
                         <label class="label--checkbox">
-                            <input type="checkbox" class="checkbox" name="postcss">其他
+                            <input type="checkbox" class="checkbox" name="automate">其他
                         </label>
                     </li>
                 </ul>
             </div>
+            <div class="qList">
+                <h3>您经常使用的包管理器?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="package">npm
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="package">Bower
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="package">Component
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="package">spm
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常使用的JS模块加载工具?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="module">Browserify
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="module">Webpack
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="module">Require.js
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="module">Sea.js
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常使用那些JS类库?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">jQuery
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">Lodash
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">underscore
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">request
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">async
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">xhr
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="lib">其他
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常使用那些JS框架?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">React
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">AngularJS
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">Backbone
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">KnockoutJS
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">Ember
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">Ploymer
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="frame">其他
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常开发那种类型的JS?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="type">浏览器端
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="type">服务器端
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="type">移动应用
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="type">微信开发
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="type">嵌入式开发
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">其他
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常那种途径获得前端资讯?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">微信公众号
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">微博
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">博客
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">论坛
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">邮件订阅
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">搜索引擎
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">书籍
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="source">其他
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="qList">
+                <h3>您经常访问的技术社区?</h3>
+                <ul class="list clearfix">
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">Github
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">Codepen
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">Codrops
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">Stack Overflow
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">SitePoint
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">CSS-Tricks
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">Web Platform
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">w3ctech
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">w3cplus
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">W3Cfuns
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">知乎
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">知乎
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">HTML5梦工厂
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">imweb前端社区
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            <input type="checkbox" class="checkbox" name="site">其他
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="result">
+                <input type="submit" id="submit" name="submit" class="button" style="display:none;">
+                <label for="submit" class="button">提交问卷</label>
+                <a href="result.html" class="button">查看结果</button>
+            </div>
         </form>
     </section>
-    <div id="progress">
+    <div id="progress"> 
         <svg id="svg" viewbox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#FDB900" />
-            <path id="circle" fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff" stroke-dasharray="1,250.2" d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80" />
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">0%</text>
+            <circle cx="50" cy="50" r="40" fill="#f0f0ff
+" opacity="0.5" stroke="#d0d0d0" stroke-width="4" />
+            <path id="circle" fill="none" stroke-linecap="round" stroke-width="4" stroke="#16a085" stroke-dasharray="1,250.2" d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80" />
+            <!-- <text id="count" x="50" y="35" text-anchor="middle" dy="7" font-size="16"></text>
+ -->
+            <text id="count2" x="50" y="50" text-anchor="middle" dy="7" font-size="16"></text>
         </svg>
     </div>
     <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/snap.svg/0.4.1/snap.svg-min.js"></script>
     <script>
     $(function() {
-    	var s = Snap('#progress');
+        var s = Snap('#progress');
         var circle = s.select('#circle');
-        var count = $(('#count'));
-        var listLength=$(".list").length;
+        var count = $('#count');
+        var count2 = $('#count2');
+        var listLength = $(".list").length;
+        var i;
+        count.html("0%");
+        count2.html("0/" + listLength);
         $(".list").find("input").change(function() {
-            var i = 0;
+            i = 0;
             $(".list").each(function() {
                 var choose = $(this).find("input:checked").length;
                 if (choose) {
                     i += 1;
                 };
             });
-            var valOld=((i-1)/listLength).toFixed(2);
-            var val=(i/listLength).toFixed(2);
-            count.html(val*100+"%");
-            // circle.attr({strokeDasharray: '0, 251.2'});
-            Snap.animate(valOld*251.2, val*251.2, function(val) {
-                circle.attr({'stroke-dasharray': val + ',251.2'});
+            var valOld = ((i - 1) / listLength).toFixed(2);
+            var val = (i / listLength).toFixed(2);
+            // count.html(parseInt(val * 100) + "%");
+            count2.html(i + "/" + listLength);
+            Snap.animate(valOld * 251.2, val * 251.2, function(val) {
+                circle.attr({
+                    'stroke-dasharray': val + ',251.2'
+                });
             }, 1000);
         });
-
     });
     </script>
 </body>
