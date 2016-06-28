@@ -357,7 +357,7 @@ a:hover {
         left: 3rem;
     }
     .qList h3::before {
-        top: -0.1rem;
+        top: -0.05rem;
         left: -3rem;
         font: 1.2rem/1.2 'Bonbon', 'Mrs Saint Delafield', Arial;
     }
