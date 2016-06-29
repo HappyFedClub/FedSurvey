@@ -383,6 +383,7 @@ footer {
     }
     .qList h3 {
         left: 3rem;
+        font-size: 1.2rem;
     }
     .qList h3::before {
         top: -0.05rem;
@@ -411,7 +412,7 @@ footer {
         width: 100%;
     }
     .resultPage .qList{
-        width: 80%;
+        width: 100%;
         float: none;
     }
 }
