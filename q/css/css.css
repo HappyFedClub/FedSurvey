@@ -160,7 +160,7 @@ p {
     counter-increment: listH 1;
     transition: text-shadow .5s ease-out;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .qList h3:hover {
@@ -201,7 +201,7 @@ p {
     margin: 1rem 0 0 .5rem;
     cursor: pointer;
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .checkbox {
