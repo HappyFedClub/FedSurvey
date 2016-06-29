@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>结果分析-前端开发行业现状调查</title>
+    <meta name="viewport" content="width=device-width
+, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="//cdn.bootcss.com/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body class="resultPage">
+    <header class="header">
+        <h1>前端开发行业现状调查问卷结果分析</h1>
+        <p>尊敬的前端前辈们：</p>
+        <p>大牛们万安，我们是来自<a class="background-slide" href="http://zptc.cn" target="_blank">浙江邮电职业技术学院</a>的<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端俱乐部</a>，正在进行《前端开发行业现状调查》的暑期社会实践，<em>非常感谢您的支持</em>！！</p>
+        <p>关于调查结果，分析如下，请笑纳！！</p>
+        <p>共有X位同仁参与了调查。</p>
+    </header>
+    <section class="content clearfix">
+        <div class="qList">
+            <h3>您的性别是？</h3>
+            <div class="chart" id="chart1"></div>
+        </div>
+        <div class="qList">
+            <h3>您的年龄？</h3>
+            <div class="chart" id="chart2"></div>
+        </div>
+        <div class="qList">
+            <h3>您的学历？</h3>
+            <div class="chart" id="chart3"></div>
+        </div>
+        <div class="qList">
+            <h3>您的工作年限？</h3>
+            <div class="chart" id="chart4"></div>
+        </div>
+        <div class="qList">
+            <h3>您的工资水平（元/月）？</h3>
+            <div class="chart" id="chart5"></div>
+        </div>
+        <div class="qList">
+            <h3>您常用的开发环境？</h3>
+            <div class="chart" id="chart6"></div>
+        </div>
+        <div class="qList">
+            <h3>您常用的CSS前缀处理方式？</h3>
+            <div class="chart" id="chart7"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用的CSS处理器?</h3>
+            <div class="chart" id="chart8"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用的脚本构建工具?</h3>
+            <div class="chart" id="chart9"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用的包管理器?</h3>
+            <div class="chart" id="chart10"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用的JS模块加载工具?</h3>
+            <div class="chart" id="chart11"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用那些JS类库?</h3>
+            <div class="chart" id="chart12"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常使用那些JS框架?</h3>
+            <div class="chart" id="chart13"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常开发那种类型的JS?</h3>
+            <div class="chart" id="chart14"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常那种途径获得前端资讯?</h3>
+            <div class="chart" id="chart15"></div>
+        </div>
+        <div class="qList">
+            <h3>您经常访问的技术社区?</h3>
+            <div class="chart" id="chart1"></div>
+        </div>
+    </section>
+    <footer>
+        <p>
+            浙江邮电职业技术学院<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端开发俱乐部</a>版权所有
+        </p>
+        <p>建议使用现代浏览器浏览！</p>
+    </footer>
+    <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/echarts/3.1.10/echarts.min.js"></script>
+    <script>
+        var maxValue=400;
+        option1 = {
+            title : {
+                text: '性别比例',
+                x:'center',
+                y:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['程序猿','程序媛']
+            },
+            series : [
+                {
+                    name: '性别比例',
+                    type: 'pie',
+                    radius : '80%',
+                    center: ['50%', '55%'],
+                    data:[
+                        {value:335, name:'程序猿'},
+                        {value:310, name:'程序媛'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option2 = {
+            title : {
+                text: '年龄比例',
+                x:'center',
+                y:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['16-24','25-29','30-35','36+']
+            },
+            series : [
+                {
+                    name: '年龄比例',
+                    type: 'pie',
+                    radius : '80%',
+                    center: ['50%', '55%'],
+                    data:[
+                        {value:120, name:'16-24'},
+                        {value:240, name:'25-29'},
+                        {value:180, name:'30-35'},
+                        {value:40, name:'36+'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option3 = {
+            title : {
+                text: '学历分布',
+                x:'center',
+                y:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['高中及以下','专科','本科','硕士及以上']
+            },
+            series : [
+                {
+                    name: '学历分布',
+                    type: 'pie',
+                    radius : '80%',
+                    center: ['50%', '55%'],
+                    data:[
+                        {value:20, name:'高中及以下'},
+                        {value:240, name:'专科'},
+                        {value:280, name:'本科'},
+                        {value:40, name:'硕士及以上'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option4 = {
+            title : {
+                text: '工作年限',
+                x:'center',
+                y:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['0-1年','1-3年','3-5年','5年+']
+            },
+            series : [
+                {
+                    name: '工作年限',
+                    type: 'pie',
+                    radius : '80%',
+                    center: ['50%', '55%'],
+                    data:[
+                        {value:100, name:'0-1年'},
+                        {value:140, name:'1-3年'},
+                        {value:180, name:'3-5年'},
+                        {value:200, name:'5年+'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option5 = {
+            title : {
+                text: '薪资水平',
+                x:'center',
+                y:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['1000-3000','3000-5000','5000-10000','10000+']
+            },
+            series : [
+                {
+                    name: '薪资水平',
+                    type: 'pie',
+                    radius : '80%',
+                    center: ['50%', '55%'],
+                    data:[
+                        {value:100, name:'1000-3000'},
+                        {value:140, name:'3000-5000'},
+                        {value:180, name:'5000-10000'},
+                        {value:200, name:'10000+'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option6 = {
+            title : {
+                text: '开发环境',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['Sublime text','Vim','Emacs','Brackets','Atom','VS Code','IntelliJ IDEA','Hbuilder','WebStorm','Aptana Studio','Web IDE','Dreamweaver','Visual Studio']
+            },
+            series : [
+                {
+                    name: '开发环境',
+                    type: 'funnel',
+                    width: '60%',
+                    height: '80%',
+                    left: 'center',
+                    top: '5%',
+                    // funnelAlign: 'right',
+                    data:[
+                        {value:60, name:'Sublime text'},
+                        {value:33, name:'Vim'},
+                        {value:20, name:'Emacs'},
+                        {value:70, name:'Brackets'},
+                        {value:120, name:'Atom'},
+                        {value:60, name:'VS Code'},
+                        {value:30, name:'IntelliJ IDEA'},
+                        {value:10, name:'Hbuilder'},
+                        {value:95, name:'WebStorm'},
+                        {value:110, name:'Aptana Studio'},
+                        {value:66, name:'Web IDE'},
+                        {value:35, name:'Dreamweaver'},
+                        {value:18, name:'Visual Studio'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option7 = {
+            title: {
+                text: 'CSS前缀处理方式',
+                x:'center',
+                y:'bottom'
+            },
+            radar: {
+                indicator: [
+                   { name: '-prefix-free',max:maxValue},
+                   { name: '编辑器插件或IDE特性',max:maxValue},
+                   { name: '预处理中的mixin',max:maxValue},
+                   { name: 'Autoprefixer',max:maxValue},
+                   { name: '其他',max:maxValue},
+                ]
+            },
+            series: [{
+                name: 'CSS前缀处理方式',
+                type: 'radar',
+                data : [
+                    {
+                        value : [230, 120, 85, 320, 35],
+                    }
+                ]
+            }]
+        };
+        option8 = {
+            title: {
+                text: 'CSS处理器',
+                x:'center',
+                y:'bottom'
+            },
+            radar: {
+                indicator: [
+                   { name: 'Sass',max:maxValue},
+                   { name: 'Less',max:maxValue},
+                   { name: 'Stylus',max:maxValue},
+                   { name: 'Rework',max:maxValue},
+                   { name: 'PostCSS',max:maxValue},
+                   { name: '其他',max:maxValue},
+                ]
+            },
+            series: [{
+                name: 'CSS处理器',
+                type: 'radar',
+                data : [
+                    {
+                        value : [230, 120, 85, 150, 235,20],
+                    }
+                ]
+            }]
+        };
+        option9 = {
+            title: {
+                text: '脚本构建工具',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                left: '5%',
+                top: '5%',
+                data: ['Gulp','Grunt','npm run','Make','Broccoli','其他']
+            },
+            calculable: true,
+            series: [
+                {
+                    name: '脚本构建工具1',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '10%',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'Gulp'},
+                        {value: 30, name: 'Grunt'},
+                        {value: 10, name: 'npm run'},
+                        {value: 80, name: 'Make'},
+                        {value: 100, name: 'Broccoli'},
+                        {value: 22, name: '其他'},
+                    ]
+                },
+                {
+                    name: '脚本构建工具2',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '50%',
+                    sort: 'ascending',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'Gulp'},
+                        {value: 30, name: 'Grunt'},
+                        {value: 10, name: 'npm run'},
+                        {value: 80, name: 'Make'},
+                        {value: 100, name: 'Broccoli'},
+                        {value: 22, name: '其他'},
+                    ]
+                }
+            ]
+        };
+        option10 = {
+            title: {
+                text: '包管理器',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                left: '5%',
+                top: '5%',
+                data: ['npm','Bower','Component','spm']
+            },
+            calculable: true,
+            series: [
+                {
+                    name: '包管理器',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '50%',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'npm'},
+                        {value: 40, name: 'Bower'},
+                        {value: 50, name: 'Component'},
+                        {value: 80, name: 'spm'}
+                    ]
+                },
+                {
+                    name: '包管理器',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '10%',
+                    sort: 'ascending',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'npm'},
+                        {value: 40, name: 'Bower'},
+                        {value: 50, name: 'Component'},
+                        {value: 80, name: 'spm'}
+                    ]
+                }
+            ]
+        };
+        option11 = {
+            title: {
+                text: '模块加载工具',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                left: '5%',
+                top: '5%',
+                data: ['Browserify','Webpack','Require.js','Sea.js']
+            },
+            calculable: true,
+            series: [
+                {
+                    name: '模块加载工具',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '50%',
+                    funnelAlign: 'right',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'Browserify'},
+                        {value: 40, name: 'Webpack'},
+                        {value: 50, name: 'Require.js'},
+                        {value: 80, name: 'Sea.js'}
+                    ]
+                },
+                {
+                    name: '模块加载工具',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '20%',
+                    top: '10%',
+                    sort: 'ascending',
+                    funnelAlign: 'right',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 60, name: 'Browserify'},
+                        {value: 40, name: 'Webpack'},
+                        {value: 50, name: 'Require.js'},
+                        {value: 80, name: 'Sea.js'}
+                    ]
+                }
+            ]
+        };
+        option12 = {
+            title: {
+                text: 'JS类库',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                left: '5%',
+                top: '5%',
+                data: ['jQuery','Lodash','underscore','request','async','xhr','其他']
+            },
+            calculable: true,
+            series: [
+                {
+                    name: 'JS类库',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '40%',
+                    top: '50%',
+                    funnelAlign: 'left',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 160, name: 'jQuery'},
+                        {value: 240, name: 'Lodash'},
+                        {value: 180, name: 'underscore'},
+                        {value: 80, name: 'request'},
+                        {value: 70, name: 'async'},
+                        {value: 20, name: 'xhr'},
+                        {value: 36, name: '其他'},
+                    ]
+                },
+                {
+                    name: 'JS类库',
+                    type:'funnel',
+                    width: '60%',
+                    height: '40%',
+                    left: '40%',
+                    top: '10%',
+                    sort: 'ascending',
+                    funnelAlign: 'right',
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data:[
+                        {value: 160, name: 'jQuery'},
+                        {value: 240, name: 'Lodash'},
+                        {value: 180, name: 'underscore'},
+                        {value: 80, name: 'request'},
+                        {value: 70, name: 'async'},
+                        {value: 20, name: 'xhr'},
+                        {value: 36, name: '其他'},
+                    ]
+                }
+            ]
+        };
+        option13 = {
+            title: {
+                text: 'JS框架',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            xAxis: {
+                type: 'category',
+                axisLabel:{
+                    interval:0,
+                    rotate:45
+                },
+                data: ['React','AngularJS','Backbone','KnockoutJS','Ember','Ploymer','其他']
+            },
+            series: [
+                {
+                    name: 'JS框架',
+                    type: 'bar',
+                    barWidth: '30',
+                    data: [240,300,167,152,180,99,37],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    }
+                }
+            ]
+        };
+        option14 = {
+            title: {
+                text: 'JS类型',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            xAxis: {
+                type: 'category',
+                axisLabel:{
+                    interval:0,
+                    rotate:45
+                },
+                data: ['浏览器端','服务器端','移动应用','微信开发','嵌入式开发','其他']
+            },
+            series: [
+                {
+                    name: 'JS类型',
+                    type: 'bar',
+                    barWidth: '30',
+                    data: [240,300,167,152,180,99],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    }
+                }
+            ]
+        };
+        option15 = {
+            title : {
+                text: '前端资讯源',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['微信公众号','微博','博客','论坛','邮件订阅','搜索引擎','书籍','其他']
+            },
+            series : [
+                {
+                    name: '前端资讯源',
+                    type: 'funnel',
+                    width: '60%',
+                    height: '80%',
+                    left: 'center',
+                    top: '5%',
+                    sort: 'ascending',
+                    data:[
+                        {value:60, name:'微信公众号'},
+                        {value:33, name:'微博'},
+                        {value:20, name:'博客'},
+                        {value:70, name:'论坛'},
+                        {value:120, name:'邮件订阅'},
+                        {value:60, name:'搜索引擎'},
+                        {value:30, name:'书籍'},
+                        {value:10, name:'其他'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        option16 = {
+            title : {
+                text: '技术社区',
+                x:'center',
+                y:'bottom'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: '5%',
+                y: '5%',
+                data: ['Github','Codepen','Codrops','Stack Overflow','SitePoint','CSS-Tricks','Web Platform','MDN','w3cplus','W3Cfuns','w3ctech','知乎','HTML5梦工厂','imweb前端社区','其他']
+            },
+            series : [
+                {
+                    name: '技术社区',
+                    type: 'funnel',
+                    width: '60%',
+                    height: '80%',
+                    left: 'center',
+                    top: '5%',
+                    sort: 'ascending',
+                    data:[
+                        {value:60, name:'Github'},
+                        {value:33, name:'Codepen'},
+                        {value:20, name:'Codrops'},
+                        {value:70, name:'Stack Overflow'},
+                        {value:120, name:'SitePoint'},
+                        {value:60, name:'CSS-Tricks'},
+                        {value:30, name:'Web Platform'},
+                        {value:10, name:'MDN'},
+                        {value:10, name:'w3cplus'},
+                        {value:10, name:'W3Cfuns'},
+                        {value:10, name:'w3ctech'},
+                        {value:10, name:'知乎'},
+                        {value:10, name:'HTML5梦工厂'},
+                        {value:10, name:'imweb前端社区'},
+                        {value:10, name:'其他'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+
+
+        $(".chart").each(function(index, el) {
+            var chart=echarts.init(this);
+            chart.setOption(eval('option'+(index+1)));
+        });
+    </script>
+</body>
+
+</html>

@@ -28,6 +28,7 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     font-size: 18px;
     background: #f0f0f3;
@@ -43,6 +44,10 @@ a:hover {
     color: #16a085;
 }
 
+p {
+    line-height: 1.5;
+}
+
 
 /* End hide from IE-mac */
 
@@ -51,7 +56,7 @@ a:hover {
 
 .header,
 .content {
-    width: 60rem;
+    width: 70rem;
     padding: 1rem;
     margin: 0 auto;
     counter-reset: listH;
@@ -98,20 +103,20 @@ a:hover {
     }
 }
 
-.header p:not(:first-of-type) {
-    text-indent: 2em;
+.header p {
+    font-size: 1.2rem;
     line-height: 1.5;
 }
 
-.header p:first-of-type {
-    line-height: 2;
+.header p:not(:first-of-type) {
+    text-indent: 2em;
 }
 
 .header em {
     color: black;
 }
 
-.header .background-slide {
+.background-slide {
     z-index: 3;
     position: relative;
     transition: all .5s;
@@ -119,7 +124,7 @@ a:hover {
     /*border-bottom: 1px solid #16a085;*/
 }
 
-.header .background-slide::after {
+.background-slide::after {
     content: '';
     position: absolute;
     top: -0.1em;
@@ -155,6 +160,7 @@ a:hover {
     counter-increment: listH 1;
     transition: text-shadow .5s ease-out;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+    font-size: 1.5rem;
 }
 
 .qList h3:hover {
@@ -167,7 +173,7 @@ a:hover {
     color: #16a085;
     position: absolute;
     left: -5rem;
-    top: -1rem;
+    top: -0.6rem;
     font: 2rem/1.5 'Bonbon', 'Mrs Saint Delafield', Arial;
     opacity: 0.4;
     transition: opacity .1s ease-out;
@@ -195,6 +201,7 @@ a:hover {
     margin: 1rem 0 0 .5rem;
     cursor: pointer;
     display: block;
+    font-size: 1.2rem;
 }
 
 .checkbox {
@@ -293,7 +300,7 @@ a:hover {
     display: inline-block;
     border-radius: 4px;
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
 }
@@ -343,9 +350,30 @@ a:hover {
     height: 15rem;
 }
 
+footer {
+    text-align: center;
+    color: rgba(0, 0, 0, .5);
+    padding: 20px 0;
+}
+
+/*
+结果页图表设置
+*/
+.resultPage .chart{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 400px;
+}
+.resultPage .qList{
+    width: 50%;
+    float: left;
+}
+
 @media (max-width: 768px) {
+    html,
     body {
-        font-size: 24px;
+        font-size: 16px;
         overflow-x: hidden;
     }
     .header,
@@ -373,10 +401,17 @@ a:hover {
         font-size: 1rem;
     }
     #progress {
-        width: 4rem;
-        height: 4rem;
+        width: 5rem;
+        height: 5rem;
         position: fixed;
         right: 10px;
         top: 10px;
+    }
+    .resultPage .chart{
+        width: 100%;
+    }
+    .resultPage .qList{
+        width: 80%;
+        float: none;
     }
 }
