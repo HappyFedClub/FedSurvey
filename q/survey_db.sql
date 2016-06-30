@@ -48,14 +48,14 @@ CREATE TABLE `questions` (
 -- Table structure for surveys
 -- ----------------------------
 CREATE TABLE `surveys` (
-  `id` int(11) NOT NULL auto_increment COMMENT '序号',
-  `title` varchar(100) NOT NULL COMMENT '标题',
-  `startTime` datetime default NULL COMMENT '开始时间',
-  `endTime` datetime default NULL COMMENT '结束时间',
-  `creater` int(11) default NULL COMMENT '创建者',
-  `createTime` datetime default NULL COMMENT '创建时间',
-  `type` char(1) NOT NULL default '1' COMMENT '调查类型，1代表问卷调查，2代表图文投票',
-  `welcome` varchar(500) default '' COMMENT '欢迎语',
+  `id` int(11) NOT NULL auto_increment COMMENT '调查问卷序号',
+  `title` varchar(100) NOT NULL COMMENT '调查问卷标题',
+  `startTime` datetime default NULL COMMENT '调查问卷开始时间',
+  `endTime` datetime default NULL COMMENT '调查问卷结束时间',
+  `creater` int(11) default NULL COMMENT '调查问卷创建者',
+  `createTime` datetime default NULL COMMENT '调查问卷创建时间',
+  `type` char(1) NOT NULL default '1' COMMENT '调查问卷类型，1代表问卷调查，2代表图文投票',
+  `welcome` varchar(500) default '' COMMENT '调查问卷欢迎语',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
