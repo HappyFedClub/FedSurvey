@@ -1,0 +1,420 @@
+@import url(http://fonts.useso.com/css?family=Bonbon);
+@import url(http://fonts.useso.com/css?family=Mrs+Saint+Delafield);
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-table;
+}
+
+
+/* Hides from IE-mac \*/
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 18px;
+    background: #f0f0f3;
+    color: rgba(0, 0, 0, .8);
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #16a085;
+}
+
+p {
+    line-height: 1.5;
+}
+
+
+/* End hide from IE-mac */
+
+
+/*.header部分*/
+
+.header,
+.content {
+    width: 70rem;
+    padding: 1rem;
+    margin: 0 auto;
+    counter-reset: listH;
+}
+
+.header {
+    position: relative;
+}
+
+.header h1 {
+    font: 2rem/2 'Microsoft YaHei';
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1:hover {
+    color: #16a085;
+    cursor: pointer;
+}
+
+.header h1:hover::before {
+    content: "";
+    width: 50%;
+    height: 2px;
+    position: absolute;
+    bottom: 5px;
+    background: #16a085;
+    animation: brickbreaker 2s infinite;
+}
+
+@keyframes brickbreaker {
+    0% {
+        left: 0;
+        right: 50%;
+    }
+    50% {
+        left: 50%;
+        right: 0;
+    }
+    100% {
+        left: 0;
+        right: 50%;
+    }
+}
+
+.header p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.header p:not(:first-of-type) {
+    text-indent: 2em;
+}
+
+.header em {
+    color: black;
+}
+
+.background-slide {
+    z-index: 3;
+    position: relative;
+    transition: all .5s;
+    color: #16a085;
+    /*border-bottom: 1px solid #16a085;*/
+}
+
+.background-slide::after {
+    content: '';
+    position: absolute;
+    top: -0.1em;
+    left: 0;
+    height: 1.2em;
+    width: 0%;
+    display: block;
+    transition: width .5s ease-in-out;
+    background: #16a085;
+    z-index: -1;
+}
+
+.background-slide:hover {
+    color: black;
+}
+
+.background-slide:hover::after {
+    width: 100%;
+}
+
+
+/*.section部分，调查问卷题目*/
+
+.qList {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    cursor: pointer;
+}
+
+.qList h3 {
+    position: relative;
+    left: 5rem;
+    counter-increment: listH 1;
+    transition: text-shadow .5s ease-out;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+    font-size: 1.3rem;
+}
+
+.qList h3:hover {
+    color: black;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+}
+
+.qList h3::before {
+    content: "#"counter(listH)". ";
+    color: #16a085;
+    position: absolute;
+    left: -5rem;
+    top: -0.6rem;
+    font: 2rem/1.5 'Bonbon', 'Mrs Saint Delafield', Arial;
+    opacity: 0.4;
+    transition: opacity .1s ease-out;
+}
+
+.qList:hover h3::before {
+    opacity: 1;
+}
+
+.list {
+    margin-top: 20px;
+    padding-left: 5rem;
+}
+
+.list__item {
+    margin: 0 0 .5rem 0;
+    padding: 0;
+    float: left;
+    width: 25%;
+}
+
+.label--checkbox,
+.label--radio {
+    position: relative;
+    margin: 1rem 0 0 .5rem;
+    cursor: pointer;
+    display: block;
+    font-size: 1.1rem;
+}
+
+.checkbox {
+    position: relative;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+
+.checkbox:before {
+    transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    transform: rotate(-45deg) scale(0, 0);
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    top: 0.05rem;
+    z-index: 1;
+    width: 0.75rem;
+    height: 0.375rem;
+    border: 2px solid #16a085;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.checkbox:checked:before {
+    transform: rotate(-45deg) scale(1, 1);
+}
+
+.checkbox:after {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1rem;
+    background: #fff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.radio {
+    position: relative;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+
+.radio:before {
+    transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    transform: scale(0, 0);
+    content: "";
+    position: absolute;
+    top: 0.05rem;
+    left: 0.08rem;
+    z-index: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #16a085;
+    border-radius: 50%;
+}
+
+.radio:checked:before {
+    transform: scale(1, 1);
+}
+
+.radio:after {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: -0.125rem;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+}
+
+
+/*
+结果提交部分
+*/
+
+.result {
+    width: 60rem;
+    margin: 30px auto;
+}
+
+.result .button {
+    border: none;
+    outline: none;
+    width: 42%;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    background-color: #16a085;
+    color: #f0f0f0;
+    margin: 0px 2%;
+    display: inline-block;
+    border-radius: 4px;
+    position: relative;
+    font-size: 1.2rem;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.result .button:hover {
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.result .button:before,
+.result .button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0px;
+    height: 2px;
+    background: #16a085;
+    transition: all 0.4s ease;
+}
+
+.result .button:after {
+    top: inherit;
+    left: inherit;
+    bottom: 0;
+    right: 0;
+}
+
+.result .button:hover:before,
+.result .button:hover:after {
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    width: 100%;
+}
+
+
+/*
+#progress进度条
+*/
+
+#progress {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    width: 15rem;
+    height: 15rem;
+}
+
+footer {
+    text-align: center;
+    color: rgba(0, 0, 0, .5);
+    padding: 20px 0;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
+
+/*
+结果页图表设置
+*/
+.resultPage .chart{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 400px;
+}
+.resultPage .qList{
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 768px) {
+    html,
+    body {
+        font-size: 16px;
+        overflow-x: hidden;
+    }
+    .header,
+    .content,
+    .result {
+        width: 100%;
+    }
+    .qList h3 {
+        left: 3rem;
+        font-size: 1.2rem;
+    }
+    .qList h3::before {
+        top: -0.05rem;
+        left: -3rem;
+        font: 1.2rem/1.2 'Bonbon', 'Mrs Saint Delafield', Arial;
+    }
+    .list__item {
+        margin: 0 0 .2rem 0;
+        width: 100%;
+        float: none;
+    }
+    .list {
+        padding-left: 3rem;
+    }
+    .result .button {
+        font-size: 1rem;
+    }
+    #progress {
+        width: 5rem;
+        height: 5rem;
+        position: fixed;
+        right: 10px;
+        top: 10px;
+    }
+    .resultPage .chart{
+        width: 100%;
+    }
+    .resultPage .qList{
+        width: 100%;
+        float: none;
+    }
+}
