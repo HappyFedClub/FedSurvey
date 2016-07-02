@@ -196,7 +196,8 @@ p {
 }
 
 .label--checkbox,
-.label--radio {
+.label--radio{
+	width: 100%;
     position: relative;
     margin: 1rem 0 0 .5rem;
     cursor: pointer;
@@ -287,7 +288,7 @@ p {
     margin: 30px auto;
 }
 
-.result .button {
+.result #submit~.button {
     border: none;
     outline: none;
     width: 42%;
@@ -303,6 +304,11 @@ p {
     font-size: 1.2rem;
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
+}
+
+.result #submit[disabled]+.button{
+	background-color: #666;
+	cursor: help;
 }
 
 .result .button:hover {

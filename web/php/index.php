@@ -1,7 +1,7 @@
 <?php
 require_once ('lib/MysqliDb.php');
 require_once ('lib/conn.php');
-require_once ('lib/getIP.php');
+require_once ('lib/function.php');
 error_reporting(E_ALL);
 
 // 输出调查问卷标题和调查信
@@ -58,7 +58,7 @@ function printSurveyQestion() {
                             </li>";
 			} else if ($type == '2') {
 				echo "<li class='list__item'>
-                                <label 'class=label--checkbox'>
+                                <label class='label--checkbox'>
                                     <input type='checkbox' class='checkbox' name='b{$qid}[]' value='{$a['id']}'>{$a['text']}
                                 </label>
                             </li>";
@@ -83,14 +83,14 @@ function getData() {
 		foreach ($questions as $q) {
 			$type = $q['type'];
 			$qid = $q['id'];
-			data[$qid-1]=array();
+			$data[$qid-1]=array();
 			if ($type == '1') {
 				$name = 'a' . $qid;
-				data[$qid-1][] = $_REQUEST[$name];
+				$data[$qid-1][] = $_REQUEST[$name];
 			} else if ($type == '2') {
 				$name = 'b' . $qid;
 				foreach ($_REQUEST[$name] as $checkbox) {
-					data[$qid-1][] = $checkbox;
+					$data[$qid-1][] = $checkbox;
 				}
 			}
 		}
@@ -99,24 +99,21 @@ function getData() {
 		$now = getDatetimeNow();
 		$ip = getip_out();
 
-		$voteData = Array("userid" => "0", "ip" => $ip, "time" => $now);
+		$voteData = Array("userid" => "0", "ip" => $ip, "time" => $now, "surveyid" =>1);
 		$id = $db -> insert('votes', $voteData);
 		
-		echo $data;
-
-//		foreach ($data as $d) {
-//			//echo $d."<br>";
-//			
-//			$answerData = Array("voteid" => $id, "answerid" => $d, "questionid" => , "surveyid",1);
-//			$answerlistid = $db -> insert('answerlist', $answerData);
-//		}
-		
-//		foreach($arr as $key=>$value){
-//			foreach($value as $key2=>$value2){
-//			   echo $value2;
-//			}
-//		echo "<br>";
-//		}
+		for ($i=0; $i < count($data); $i++) {
+			$qid=$i+1;
+			
+			for ($j=0; $j < count($data[$i]); $j++) { 
+				$answerData = Array("voteid" => $id, "answerid" => $data[$i][$j], "questionid" => $qid, "surveyid"=>1);
+				$answerlistid = $db -> insert('answerlist', $answerData);
+				if(!$answerlistid){
+					echo "<script>alert('数据库插入数据有问题，请联系管理员。')</script>";
+				}
+			}
+		}
+		echo "<script>alert('投票成功！');window.location.href='result.php'</script>";
 	}
 }
 
@@ -140,9 +137,9 @@ getData();
         <form action="index.php" method="post">
             <? printSurveyQestion(); ?>
             <div class="result">
-                <input type="submit" id="submit" name="submit" onlick="" class="button" style="display:none;">
-                <label for="submit" class="button">提交问卷</label>
-                <a href="result.html" target="_blank" class="button">查看结果</button>
+                <input type="submit" id="submit" disabled name="submit" onlick="" class="button" style="display:none;">
+                <label for="submit" class="button">请耐心填完！</label>
+                <a href="result.php" target="_blank" class="button">查看结果</button>
             </div>
         </form>
     </section>
@@ -178,6 +175,12 @@ getData();
 				i += 1;
 			};
 		});
+		if(i>=listLength){
+			//alert(i);
+			$("#submit").removeAttr('disabled');
+			$("#submit+.button").html('提交投票！');
+		}
+		
 		var valOld = ((i - 1) / listLength).toFixed(2);
 		var val = (i / listLength).toFixed(2);
 		count2.html(i + "/" + listLength);

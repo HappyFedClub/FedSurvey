@@ -1,3 +1,57 @@
+<?php
+require_once ('lib/MysqliDb.php');
+require_once ('lib/conn.php');
+require_once ('lib/function.php');
+error_reporting(E_ALL);
+
+// 输出调查问卷标题和调查信
+function printSurvey() {
+	global $db;
+
+	$db -> where("id", 1);
+	$survey = $db -> getOne("surveys");
+	
+	if ($survey) {
+		
+		$db-> where("surveyid",1);
+		$voters=$db->get("votes");
+		$number=$db->count;
+		
+		echo "<header class='header'>
+                <h1>{$survey['title']}</h1>
+                <div>
+                	{$survey['welcome']}
+                	<p>感谢您的参与，共有{$number}位同仁参与了调查，调查结果分析如下。</p>
+                </div>
+             </header>";
+	} else {
+		echo "<span>没有调查问卷，赶紧加入吧！</span>";
+	}
+}
+
+
+// 输出问卷题目
+function printSurveyQestion() {
+	global $db;
+
+	$db -> where('sid', 1);
+	$db -> orderBy("num", "asc");
+	$questions = $db -> get('questions');
+	$qNum = $db -> count;
+
+	if ($qNum == 0) {
+		echo "<div>没有问题哟，快点添加呀！</div>";
+		return;
+	}
+	foreach ($questions as $q) {
+		echo "<div class='qList'>
+                <h3>{$q['title']}</h3>
+                <div class='chart' id='{$q['id']}'></div>
+            </div>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -11,78 +65,9 @@
 </head>
 
 <body class="resultPage">
-    <header class="header">
-        <h1>前端开发行业现状调查问卷结果分析</h1>
-        <p>尊敬的前端前辈们：</p>
-        <p>大牛们万安，我们是来自<a class="background-slide" href="http://zptc.cn" target="_blank">浙江邮电职业技术学院</a>的<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端俱乐部</a>，正在进行《前端开发行业现状调查》的暑期社会实践，<em>非常感谢您的支持</em>！！</p>
-        <p>关于调查结果，分析如下，请笑纳！！</p>
-        <p>共有X位同仁参与了调查。</p>
-    </header>
+    <? printSurvey(); ?>
     <section class="content clearfix">
-        <div class="qList">
-            <h3>您的性别是？</h3>
-            <div class="chart" id="chart1"></div>
-        </div>
-        <div class="qList">
-            <h3>您的年龄？</h3>
-            <div class="chart" id="chart2"></div>
-        </div>
-        <div class="qList">
-            <h3>您的学历？</h3>
-            <div class="chart" id="chart3"></div>
-        </div>
-        <div class="qList">
-            <h3>您的工作年限？</h3>
-            <div class="chart" id="chart4"></div>
-        </div>
-        <div class="qList">
-            <h3>您的工资水平（元/月）？</h3>
-            <div class="chart" id="chart5"></div>
-        </div>
-        <div class="qList">
-            <h3>您常用的开发环境？</h3>
-            <div class="chart" id="chart6"></div>
-        </div>
-        <div class="qList">
-            <h3>您常用的CSS前缀处理方式？</h3>
-            <div class="chart" id="chart7"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用的CSS处理器?</h3>
-            <div class="chart" id="chart8"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用的脚本构建工具?</h3>
-            <div class="chart" id="chart9"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用的包管理器?</h3>
-            <div class="chart" id="chart10"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用的JS模块加载工具?</h3>
-            <div class="chart" id="chart11"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用那些JS类库?</h3>
-            <div class="chart" id="chart12"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常使用那些JS框架?</h3>
-            <div class="chart" id="chart13"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常开发那种类型的JS?</h3>
-            <div class="chart" id="chart14"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常那种途径获得前端资讯?</h3>
-            <div class="chart" id="chart15"></div>
-        </div>
-        <div class="qList">
-            <h3>您经常访问的技术社区?</h3>
-            <div class="chart" id="chart1"></div>
-        </div>
+    <? printSurveyQestion(); ?>
     </section>
     <footer>
         <p>
@@ -838,5 +823,4 @@
         });
     </script>
 </body>
-
 </html>
