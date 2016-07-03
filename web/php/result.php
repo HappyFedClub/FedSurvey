@@ -25,6 +25,15 @@ function printSurvey() {
                 <div>
                 	{$survey['welcome']}
                 	<p>感谢您的参与，共有{$number}位同仁参与了调查，调查结果分析如下。</p>
+                	<div class='link'>
+		                <a href='result.php?chartType=0' class='button'>饼图</a>
+		                <a href='result.php?chartType=1' class='button'>漏斗图1</a>
+		                <a href='result.php?chartType=2' class='button'>漏斗图2</a>
+		                <a href='result.php?chartType=3' class='button'>漏斗图3</a>
+		                <a href='result.php?chartType=4' class='button'>柱图</a>
+		                <a href='result.php?chartType=5' class='button'>雷达图</a>
+		                <a href='result.php' class='button'>随机</a>
+		            </div>
                 </div>
              </header>";
 	} else {
@@ -81,6 +90,8 @@ function printSurveyQestion() {
     <script src="//cdn.bootcss.com/echarts/3.1.10/echarts.min.js"></script>
     <script>
     	<?php 
+    		
+    		$chartType=!empty($_GET['chartType'])?$_GET['chartType']:-1;
     		
 	   		global $db;
 			global $number;
@@ -498,8 +509,17 @@ function printSurveyQestion() {
 		                }
 		            ]
 		        };";
+				
+				$typeArray=Array($strpie,$strfunnel,$strfunnel2,$strfunnel3,$strbar,$strradar);
 		        
-				echo $strbar;
+		        if($chartType<=5&&$chartType>=0){
+					echo $typeArray[$chartType];
+				}else{
+					$arr=array();
+  					$arr[]=rand(0,5);
+  					$arr=array_unique($arr);
+					echo $typeArray[$arr[0]];
+				}
 			}
 		?>
         

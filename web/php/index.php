@@ -141,7 +141,7 @@ getData();
             <div class="result">
                 <input type="submit" id="submit" disabled name="submit" onlick="" class="button" style="display:none;">
                 <label for="submit" class="button">请耐心填完！</label>
-                <a href="result.php" target="_blank" class="button">查看结果</button>
+                <a href="result.php" target="_blank" class="button">查看结果</a>
             </div>
         </form>
     </section>

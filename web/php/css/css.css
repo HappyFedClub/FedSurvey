@@ -290,7 +290,7 @@ p {
 	margin: 30px auto;
 }
 
-.result #submit~.button {
+.result #submit~.button{
 	border: none;
 	outline: none;
 	width: 42%;
@@ -308,19 +308,38 @@ p {
 	transition: all 0.7s ease;
 }
 
+.header .button {
+	width: 10%;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	background-color: #16a085;
+	color: #f0f0f0;
+	margin: 0px 5px;
+	display: inline-block;
+	border-radius: 2px;
+	position: relative;
+	font-size: 1.2rem;
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+
 .result #submit[disabled]+.button {
 	background-color: #666;
 	cursor: help;
 }
 
-.result .button:hover {
+.result .button:hover,
+.header .button:hover {
 	background: transparent;
 	color: black;
 	cursor: pointer;
 }
 
 .result .button:before,
-.result .button:after {
+.result .button:after,
+.header .button:before, 
+.header .button:after  {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -331,7 +350,9 @@ p {
 	transition: all 0.4s ease;
 }
 
-.result .button:after {
+.result .button:after,
+.header .button:after 
+ {
 	top: inherit;
 	left: inherit;
 	bottom: 0;
@@ -339,12 +360,17 @@ p {
 }
 
 .result .button:hover:before,
-.result .button:hover:after {
+.result .button:hover:after,
+.header .button:hover:before, 
+.header .button:hover:after{
 	-webkit-transition: all 0.7s ease;
 	transition: all 0.7s ease;
 	width: 100%;
 }
 
+.resultPage .header .link{
+	margin: 1rem 2rem;
+}
 
 /*
 #progress进度条
