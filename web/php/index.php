@@ -34,15 +34,17 @@ function printSurveyQestion() {
 		return;
 	}
 	foreach ($questions as $q) {
-		echo "<div class='qList'>
-                <h3>{$q['title']}</h3>
-                <ul class='list clearfix'>";
 
 		$qid = $q['id'];
 		$type = $q['type'];
+		$necessary = $q['isnecessary'] == '1' ? ' necessary' : '';
 		$db -> where('qid', $qid);
 		$db -> orderBy('num', 'asc');
 		$answers = $db -> get('answers');
+
+		echo "<div class='qList{$necessary}'>
+                <h3>{$q['title']}</h3>
+                <ul class='list clearfix'>";
 
 		if ($db -> count == 0) {
 			echo "<li>没有选项哟，快点添加呀！</li>";
@@ -83,14 +85,14 @@ function getData() {
 		foreach ($questions as $q) {
 			$type = $q['type'];
 			$qid = $q['id'];
-			$data[$qid-1]=array();
+			$data[$qid - 1] = array();
 			if ($type == '1') {
 				$name = 'a' . $qid;
-				$data[$qid-1][] = $_REQUEST[$name];
+				$data[$qid - 1][] = $_REQUEST[$name];
 			} else if ($type == '2') {
 				$name = 'b' . $qid;
 				foreach ($_REQUEST[$name] as $checkbox) {
-					$data[$qid-1][] = $checkbox;
+					$data[$qid - 1][] = $checkbox;
 				}
 			}
 		}
@@ -99,16 +101,16 @@ function getData() {
 		$now = getDatetimeNow();
 		$ip = getip_out();
 
-		$voteData = Array("userid" => "0", "ip" => $ip, "time" => $now, "surveyid" =>1);
+		$voteData = Array("userid" => "0", "ip" => $ip, "time" => $now, "surveyid" => 1);
 		$id = $db -> insert('votes', $voteData);
-		
-		for ($i=0; $i < count($data); $i++) {
-			$qid=$i+1;
-			
-			for ($j=0; $j < count($data[$i]); $j++) { 
-				$answerData = Array("voteid" => $id, "answerid" => $data[$i][$j], "questionid" => $qid, "surveyid"=>1);
+
+		for ($i = 0; $i < count($data); $i++) {
+			$qid = $i + 1;
+
+			for ($j = 0; $j < count($data[$i]); $j++) {
+				$answerData = Array("voteid" => $id, "answerid" => $data[$i][$j], "questionid" => $qid, "surveyid" => 1);
 				$answerlistid = $db -> insert('answerlist', $answerData);
-				if(!$answerlistid){
+				if (!$answerlistid) {
 					echo "<script>alert('数据库插入数据有问题，请联系管理员。')</script>";
 				}
 			}
@@ -175,12 +177,12 @@ getData();
 				i += 1;
 			};
 		});
-		if(i>=listLength){
+		if (i >= listLength) {
 			//alert(i);
 			$("#submit").removeAttr('disabled');
 			$("#submit+.button").html('提交投票！');
 		}
-		
+
 		var valOld = ((i - 1) / listLength).toFixed(2);
 		var val = (i / listLength).toFixed(2);
 		count2.html(i + "/" + listLength);

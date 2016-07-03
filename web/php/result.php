@@ -4,9 +4,12 @@ require_once ('lib/conn.php');
 require_once ('lib/function.php');
 error_reporting(E_ALL);
 
+$number;
+
 // 输出调查问卷标题和调查信
 function printSurvey() {
 	global $db;
+	global $number;;
 
 	$db -> where("id", 1);
 	$survey = $db -> getOne("surveys");
@@ -29,7 +32,6 @@ function printSurvey() {
 	}
 }
 
-
 // 输出问卷题目
 function printSurveyQestion() {
 	global $db;
@@ -38,7 +40,8 @@ function printSurveyQestion() {
 	$db -> orderBy("num", "asc");
 	$questions = $db -> get('questions');
 	$qNum = $db -> count;
-
+	
+	echo "<section class='content clearfix'>";
 	if ($qNum == 0) {
 		echo "<div>没有问题哟，快点添加呀！</div>";
 		return;
@@ -47,10 +50,11 @@ function printSurveyQestion() {
 		echo "<div class='qList'>
                 <h3>{$q['title']}</h3>
                 <div class='chart' id='{$q['id']}'></div>
-            </div>";
+           </div>";
+	}
+	echo "</section>";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -66,9 +70,7 @@ function printSurveyQestion() {
 
 <body class="resultPage">
     <? printSurvey(); ?>
-    <section class="content clearfix">
     <? printSurveyQestion(); ?>
-    </section>
     <footer>
         <p>
             浙江邮电职业技术学院<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端开发俱乐部</a>版权所有
@@ -78,733 +80,429 @@ function printSurveyQestion() {
     <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/echarts/3.1.10/echarts.min.js"></script>
     <script>
-        var maxValue=400;
-        option1 = {
-            title : {
-                text: '性别比例',
-                x:'center',
-                y:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['程序猿','程序媛']
-            },
-            series : [
-                {
-                    name: '性别比例',
-                    type: 'pie',
-                    radius : '80%',
-                    center: ['50%', '55%'],
-                    data:[
-                        {value:335, name:'程序猿'},
-                        {value:310, name:'程序媛'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option2 = {
-            title : {
-                text: '年龄比例',
-                x:'center',
-                y:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['16-24','25-29','30-35','36+']
-            },
-            series : [
-                {
-                    name: '年龄比例',
-                    type: 'pie',
-                    radius : '80%',
-                    center: ['50%', '55%'],
-                    data:[
-                        {value:120, name:'16-24'},
-                        {value:240, name:'25-29'},
-                        {value:180, name:'30-35'},
-                        {value:40, name:'36+'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option3 = {
-            title : {
-                text: '学历分布',
-                x:'center',
-                y:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['高中及以下','专科','本科','硕士及以上']
-            },
-            series : [
-                {
-                    name: '学历分布',
-                    type: 'pie',
-                    radius : '80%',
-                    center: ['50%', '55%'],
-                    data:[
-                        {value:20, name:'高中及以下'},
-                        {value:240, name:'专科'},
-                        {value:280, name:'本科'},
-                        {value:40, name:'硕士及以上'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option4 = {
-            title : {
-                text: '工作年限',
-                x:'center',
-                y:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['0-1年','1-3年','3-5年','5年+']
-            },
-            series : [
-                {
-                    name: '工作年限',
-                    type: 'pie',
-                    radius : '80%',
-                    center: ['50%', '55%'],
-                    data:[
-                        {value:100, name:'0-1年'},
-                        {value:140, name:'1-3年'},
-                        {value:180, name:'3-5年'},
-                        {value:200, name:'5年+'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option5 = {
-            title : {
-                text: '薪资水平',
-                x:'center',
-                y:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['1000-3000','3000-5000','5000-10000','10000+']
-            },
-            series : [
-                {
-                    name: '薪资水平',
-                    type: 'pie',
-                    radius : '80%',
-                    center: ['50%', '55%'],
-                    data:[
-                        {value:100, name:'1000-3000'},
-                        {value:140, name:'3000-5000'},
-                        {value:180, name:'5000-10000'},
-                        {value:200, name:'10000+'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option6 = {
-            title : {
-                text: '开发环境',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['Sublime text','Vim','Emacs','Brackets','Atom','VS Code','IntelliJ IDEA','Hbuilder','WebStorm','Aptana Studio','Web IDE','Dreamweaver','Visual Studio']
-            },
-            series : [
-                {
-                    name: '开发环境',
-                    type: 'funnel',
-                    width: '60%',
-                    height: '80%',
-                    left: 'center',
-                    top: '5%',
-                    // funnelAlign: 'right',
-                    data:[
-                        {value:60, name:'Sublime text'},
-                        {value:33, name:'Vim'},
-                        {value:20, name:'Emacs'},
-                        {value:70, name:'Brackets'},
-                        {value:120, name:'Atom'},
-                        {value:60, name:'VS Code'},
-                        {value:30, name:'IntelliJ IDEA'},
-                        {value:10, name:'Hbuilder'},
-                        {value:95, name:'WebStorm'},
-                        {value:110, name:'Aptana Studio'},
-                        {value:66, name:'Web IDE'},
-                        {value:35, name:'Dreamweaver'},
-                        {value:18, name:'Visual Studio'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option7 = {
-            title: {
-                text: 'CSS前缀处理方式',
-                x:'center',
-                y:'bottom'
-            },
-            radar: {
-                indicator: [
-                   { name: '-prefix-free',max:maxValue},
-                   { name: '编辑器插件或IDE特性',max:maxValue},
-                   { name: '预处理中的mixin',max:maxValue},
-                   { name: 'Autoprefixer',max:maxValue},
-                   { name: '其他',max:maxValue},
-                ]
-            },
-            series: [{
-                name: 'CSS前缀处理方式',
-                type: 'radar',
-                data : [
-                    {
-                        value : [230, 120, 85, 320, 35],
-                    }
-                ]
-            }]
-        };
-        option8 = {
-            title: {
-                text: 'CSS处理器',
-                x:'center',
-                y:'bottom'
-            },
-            radar: {
-                indicator: [
-                   { name: 'Sass',max:maxValue},
-                   { name: 'Less',max:maxValue},
-                   { name: 'Stylus',max:maxValue},
-                   { name: 'Rework',max:maxValue},
-                   { name: 'PostCSS',max:maxValue},
-                   { name: '其他',max:maxValue},
-                ]
-            },
-            series: [{
-                name: 'CSS处理器',
-                type: 'radar',
-                data : [
-                    {
-                        value : [230, 120, 85, 150, 235,20],
-                    }
-                ]
-            }]
-        };
-        option9 = {
-            title: {
-                text: '脚本构建工具',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                left: '5%',
-                top: '5%',
-                data: ['Gulp','Grunt','npm run','Make','Broccoli','其他']
-            },
-            calculable: true,
-            series: [
-                {
-                    name: '脚本构建工具1',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '10%',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'Gulp'},
-                        {value: 30, name: 'Grunt'},
-                        {value: 10, name: 'npm run'},
-                        {value: 80, name: 'Make'},
-                        {value: 100, name: 'Broccoli'},
-                        {value: 22, name: '其他'},
-                    ]
-                },
-                {
-                    name: '脚本构建工具2',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '50%',
-                    sort: 'ascending',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'Gulp'},
-                        {value: 30, name: 'Grunt'},
-                        {value: 10, name: 'npm run'},
-                        {value: 80, name: 'Make'},
-                        {value: 100, name: 'Broccoli'},
-                        {value: 22, name: '其他'},
-                    ]
-                }
-            ]
-        };
-        option10 = {
-            title: {
-                text: '包管理器',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                left: '5%',
-                top: '5%',
-                data: ['npm','Bower','Component','spm']
-            },
-            calculable: true,
-            series: [
-                {
-                    name: '包管理器',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '50%',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'npm'},
-                        {value: 40, name: 'Bower'},
-                        {value: 50, name: 'Component'},
-                        {value: 80, name: 'spm'}
-                    ]
-                },
-                {
-                    name: '包管理器',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '10%',
-                    sort: 'ascending',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'npm'},
-                        {value: 40, name: 'Bower'},
-                        {value: 50, name: 'Component'},
-                        {value: 80, name: 'spm'}
-                    ]
-                }
-            ]
-        };
-        option11 = {
-            title: {
-                text: '模块加载工具',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                left: '5%',
-                top: '5%',
-                data: ['Browserify','Webpack','Require.js','Sea.js']
-            },
-            calculable: true,
-            series: [
-                {
-                    name: '模块加载工具',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '50%',
-                    funnelAlign: 'right',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'Browserify'},
-                        {value: 40, name: 'Webpack'},
-                        {value: 50, name: 'Require.js'},
-                        {value: 80, name: 'Sea.js'}
-                    ]
-                },
-                {
-                    name: '模块加载工具',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '20%',
-                    top: '10%',
-                    sort: 'ascending',
-                    funnelAlign: 'right',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 60, name: 'Browserify'},
-                        {value: 40, name: 'Webpack'},
-                        {value: 50, name: 'Require.js'},
-                        {value: 80, name: 'Sea.js'}
-                    ]
-                }
-            ]
-        };
-        option12 = {
-            title: {
-                text: 'JS类库',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                left: '5%',
-                top: '5%',
-                data: ['jQuery','Lodash','underscore','request','async','xhr','其他']
-            },
-            calculable: true,
-            series: [
-                {
-                    name: 'JS类库',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '40%',
-                    top: '50%',
-                    funnelAlign: 'left',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 160, name: 'jQuery'},
-                        {value: 240, name: 'Lodash'},
-                        {value: 180, name: 'underscore'},
-                        {value: 80, name: 'request'},
-                        {value: 70, name: 'async'},
-                        {value: 20, name: 'xhr'},
-                        {value: 36, name: '其他'},
-                    ]
-                },
-                {
-                    name: 'JS类库',
-                    type:'funnel',
-                    width: '60%',
-                    height: '40%',
-                    left: '40%',
-                    top: '10%',
-                    sort: 'ascending',
-                    funnelAlign: 'right',
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data:[
-                        {value: 160, name: 'jQuery'},
-                        {value: 240, name: 'Lodash'},
-                        {value: 180, name: 'underscore'},
-                        {value: 80, name: 'request'},
-                        {value: 70, name: 'async'},
-                        {value: 20, name: 'xhr'},
-                        {value: 36, name: '其他'},
-                    ]
-                }
-            ]
-        };
-        option13 = {
-            title: {
-                text: 'JS框架',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            toolbox: {
-                show : true,
-                feature : {
-                    dataView : {show: true, readOnly: false},
-                    magicType : {show: true, type: ['line', 'bar']},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
-                }
-            },
-            yAxis: {
-                type: 'value',
-                boundaryGap: [0, 0.01]
-            },
-            xAxis: {
-                type: 'category',
-                axisLabel:{
-                    interval:0,
-                    rotate:45
-                },
-                data: ['React','AngularJS','Backbone','KnockoutJS','Ember','Ploymer','其他']
-            },
-            series: [
-                {
-                    name: 'JS框架',
-                    type: 'bar',
-                    barWidth: '30',
-                    data: [240,300,167,152,180,99,37],
-                    markPoint : {
-                        data : [
-                            {type : 'max', name: '最大值'},
-                            {type : 'min', name: '最小值'}
-                        ]
-                    }
-                }
-            ]
-        };
-        option14 = {
-            title: {
-                text: 'JS类型',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            toolbox: {
-                show : true,
-                feature : {
-                    dataView : {show: true, readOnly: false},
-                    magicType : {show: true, type: ['line', 'bar']},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
-                }
-            },
-            yAxis: {
-                type: 'value',
-                boundaryGap: [0, 0.01]
-            },
-            xAxis: {
-                type: 'category',
-                axisLabel:{
-                    interval:0,
-                    rotate:45
-                },
-                data: ['浏览器端','服务器端','移动应用','微信开发','嵌入式开发','其他']
-            },
-            series: [
-                {
-                    name: 'JS类型',
-                    type: 'bar',
-                    barWidth: '30',
-                    data: [240,300,167,152,180,99],
-                    markPoint : {
-                        data : [
-                            {type : 'max', name: '最大值'},
-                            {type : 'min', name: '最小值'}
-                        ]
-                    }
-                }
-            ]
-        };
-        option15 = {
-            title : {
-                text: '前端资讯源',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['微信公众号','微博','博客','论坛','邮件订阅','搜索引擎','书籍','其他']
-            },
-            series : [
-                {
-                    name: '前端资讯源',
-                    type: 'funnel',
-                    width: '60%',
-                    height: '80%',
-                    left: 'center',
-                    top: '5%',
-                    sort: 'ascending',
-                    data:[
-                        {value:60, name:'微信公众号'},
-                        {value:33, name:'微博'},
-                        {value:20, name:'博客'},
-                        {value:70, name:'论坛'},
-                        {value:120, name:'邮件订阅'},
-                        {value:60, name:'搜索引擎'},
-                        {value:30, name:'书籍'},
-                        {value:10, name:'其他'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        option16 = {
-            title : {
-                text: '技术社区',
-                x:'center',
-                y:'bottom'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c}"
-            },
-            legend: {
-                orient: 'vertical',
-                x: '5%',
-                y: '5%',
-                data: ['Github','Codepen','Codrops','Stack Overflow','SitePoint','CSS-Tricks','Web Platform','MDN','w3cplus','W3Cfuns','w3ctech','知乎','HTML5梦工厂','imweb前端社区','其他']
-            },
-            series : [
-                {
-                    name: '技术社区',
-                    type: 'funnel',
-                    width: '60%',
-                    height: '80%',
-                    left: 'center',
-                    top: '5%',
-                    sort: 'ascending',
-                    data:[
-                        {value:60, name:'Github'},
-                        {value:33, name:'Codepen'},
-                        {value:20, name:'Codrops'},
-                        {value:70, name:'Stack Overflow'},
-                        {value:120, name:'SitePoint'},
-                        {value:60, name:'CSS-Tricks'},
-                        {value:30, name:'Web Platform'},
-                        {value:10, name:'MDN'},
-                        {value:10, name:'w3cplus'},
-                        {value:10, name:'W3Cfuns'},
-                        {value:10, name:'w3ctech'},
-                        {value:10, name:'知乎'},
-                        {value:10, name:'HTML5梦工厂'},
-                        {value:10, name:'imweb前端社区'},
-                        {value:10, name:'其他'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
+    	<?php 
+    		
+	   		global $db;
+			global $number;
+    		
+    		$db -> where('sid', 1);
+			$db -> orderBy("num", "asc");
+			$questions = $db -> get('questions');
+			
+			$db -> where('sid', 1);
+			$questions = $db -> get('questions');
+			
+			foreach ($questions as $q) {
+				$qid=$q['id'];
+				$qtitle=$q['title'];
+				
+				$db -> where('qid',$qid);
+				$answers=$db->get('answers');
+				
+				$strpie="option{$qid} = {
+		            title : {
+		                text: '{$qtitle}',
+		                x:'center',
+                		y:'center'
+		            },
+		            tooltip : {
+		                trigger: 'item',
+		                formatter: '{a} <br/>{b} : {c} ({d}%)'
+		            },
+		            legend: {
+		            	orient: 'vertical',
+		                x: '5%',
+		                y: '5%',
+		                data: [";
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strpie.="'".$atitle."',";
+					}    
+			               
+		            $strpie.="]
+		            },
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'pie',
+		                    radius : '70%',
+                    		center: ['50%', '55%'],
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strpie.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strpie.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                }
+		            ]
+		        };";
+				
+				$strfunnel="option{$qid} = {
+		            title : {
+		                text: '{$qtitle}',
+		                x:'center',
+                		y:'bottom'
+		            },
+		            tooltip : {
+		                trigger: 'item',
+		                formatter: '{a} <br/>{b} : {c} ({d}%)'
+		            },
+		            legend: {
+		            	orient: 'vertical',
+		                x: '5%',
+		                y: '5%',
+		                data: [";
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strfunnel.="'".$atitle."',";
+					}    
+			               
+		            $strfunnel.="]
+		            },
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'funnel',
+		                    width: '60%',
+		                    height: '80%',
+		                    left: 'center',
+		                    top: '10%',
+		                    sort: 'ascending',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strfunnel.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strfunnel.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                }
+		            ]
+		        };";
+		        
+		        $strfunnel2="option{$qid} = {
+		            tooltip : {
+		                trigger: 'item',
+		                formatter: '{a} <br/>{b} : {c} ({d}%)'
+		            },
+		            legend: {
+		            	orient: 'vertical',
+		                x: '5%',
+		                y: '5%',
+		                data: [";
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strfunnel2.="'".$atitle."',";
+					}    
+			               
+		            $strfunnel2.="]
+		            },
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'funnel',
+		                    width: '60%',
+		                    height: '40%',
+		                    left: 'center',
+		                    top: '10%',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strfunnel2.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strfunnel2.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                },
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'funnel',
+		                    width: '60%',
+		                    height: '40%',
+		                    left: 'center',
+		                    top: '50%',
+		                    sort: 'ascending',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strfunnel2.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strfunnel2.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                }
+		            ]
+		        };";
+		        
+		        $strfunnel3="option{$qid} = {
+		            tooltip : {
+		                trigger: 'item',
+		                formatter: '{a} <br/>{b} : {c} ({d}%)'
+		            },
+		            legend: {
+		            	orient: 'vertical',
+		                x: '5%',
+		                y: '5%',
+		                data: [";
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strfunnel3.="'".$atitle."',";
+					}    
+			               
+		            $strfunnel3.="]
+		            },
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'funnel',
+		                    width: '60%',
+		                    height: '40%',
+		                    left: 'center',
+		                    top: '10%',
+		                    sort: 'ascending',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strfunnel3.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strfunnel3.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                },
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'funnel',
+		                    width: '60%',
+		                    height: '40%',
+		                    left: 'center',
+		                    top: '50%',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strfunnel3.="{value:{$answercount}, name:'{$atitle}'},";
+								
+							}       
+				            $strfunnel3.="],
+				            itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                }
+		            ]
+		        };";
+		        
+		        $strbar="option{$qid} = {
+			        title : {
+			                text: '{$qtitle}',
+			                x:'center',
+	                		y:'center'
+			        },
+		            tooltip: {
+		                trigger: 'axis'
+		            },
+		            toolbox: {
+		                show : true,
+		                feature : {
+		                    dataView : {show: true, readOnly: false},
+		                    magicType : {show: true, type: ['line', 'bar']},
+		                    restore : {show: true},
+		                    saveAsImage : {show: true}
+		                }
+		            },
+		            yAxis: {
+		                type: 'value',
+		                boundaryGap: [0, 0.01]
+		            },
+		            xAxis: {
+		                type: 'category',
+		                axisLabel:{
+		                    interval:0,
+		                    rotate:45
+		                },
+		                data: [";
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strbar.="'".$atitle."',";
+					}    
+			               
+		            $strbar.="]
+		            },
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'bar',
+		                    barWidth: '20',
+		                    data:[";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strbar.="{$answercount},";
+								
+							}       
+				            $strbar.="],
+				             markPoint : {
+		                        data : [
+		                            {type : 'max', name: '最大值'},
+		                            {type : 'min', name: '最小值'}
+		                        ]
+		                    }
+		                }
+		            ]
+		        };";
+				
+				$strradar="option{$qid} = {
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				    radar: [
+				        {
+				            indicator: [";     
+		            
+		            foreach ($answers as $a) {
+						$aid=$a['id'];
+						$atitle=$a['text'];
+						
+						$strradar.="{text:'{$atitle}',max:{$number}},";
+					}    
+			               
+		            $strradar.="],
+				            center: ['25%','40%'],
+				            radius: 80
+				        }
+				    ],
+		            series : [
+		                {
+		                    name: '{$qtitle}',
+		                    type: 'radar',
+		                    tooltip: {
+				                trigger: 'item'
+				            },
+				            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+		                    data:[
+		                    	{
+		                    		value: [";
+				             foreach ($answers as $a) {
+								$aid=$a['id'];
+								$atitle=$a['text'];
+								
+								$db -> where('answerid', $aid);
+								$db -> where('questionid', $qid);
+								$answerlist = $db -> get('answerlist');
+								$answercount=$db->count;
+								
+								$strradar.="{$answercount},";
+								
+							}       
+				            	$strradar.="],
+				            		name:'{$qtitle}'
+				            	 }
+				            ]
+		                }
+		            ]
+		        };";
+		        
+				echo $strbar;
+			}
+		?>
+        
         optionMobile={
             title : {
                 text: ''
@@ -813,7 +511,7 @@ function printSurveyQestion() {
                 orient: 'horizontal'
             }
         }
-
+       	
         $(".chart").each(function(index, el) {
             var chart=echarts.init(this);
             chart.setOption(eval('option'+(index+1)));
