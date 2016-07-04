@@ -45,6 +45,6 @@
 
 - 申报表 
 - 策划方案
-- [调查问卷](http://sxaxbwg.org.cn/aixin/fed/)
+- [调查问卷](//sxaxbwg.org.cn/aixin/fed/)
 - 访谈邮件
 - 调研报告
