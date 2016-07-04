@@ -28,9 +28,9 @@
 
 ### 2. 实施阶段(7.1-7.31)
 
-- 最终调查问卷[静态版](/happyfedclub.github.io/FedSurvey/web/static/q/index.html)
-- 最终调查问卷[服务器](http://sxaxbwg.org.cn/aixin/fed/)
-- ![调查问卷二维码](happyfedclub.github.io/FedSurvey/img/qr.png)
+- 最终调查问卷[静态版](//happyfedclub.github.io/FedSurvey/web/static/q/index.html)
+- 最终调查问卷[服务器](//sxaxbwg.org.cn/aixin/fed/)
+- ![调查问卷二维码](//happyfedclub.github.io/FedSurvey/img/qr.png)
 - 每个同学至少访谈2位国外牛人，3位国内牛人，联系4位从业者填写调查问卷（从事前端的亲友等）
 
 ### 3. 总结阶段(8.1-8.10)
