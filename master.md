@@ -86,6 +86,13 @@ Lebanon（黎巴嫩）。
 
 ### 3. 司徒正美
 
+钟钦成[个人主页](http://www.cnblogs.com/rubylouvre/)，网名司徒正美，著名的Java专家，去哪儿网前端架构师，立志做考古学家的日语系工程师，穿梭于二次元与二进制间的“魔法师”，做过陶艺，写过小说，涉猎Java、Ruby、 Java。曾出版《Java框架设计》一书。
+联系方式:
+[微博](http://weibo.com/jslouvre)
+[邮箱](cheng19840218@gmail.com)
+[知乎](https://www.zhihu.com/people/si-tu-zheng-mei)
+[Github](https://github.com/RubyLouvre)
+
 ### 4. CSS魔法
 ![CSS魔法](https://avatars1.githubusercontent.com/u/1231359?v=3&s=460)
 
@@ -161,14 +168,31 @@ Lebanon（黎巴嫩）。
 
 
 ### 16.吴多益
-百度前端团队成员
-[个人主页](http://wuduoyi.com/)
+
+[个人主页](http://wuduoyi.com/)，百度前端团队成员，FEX 团队负责人。
+联系方式：
 [Github](https://github.com/nwind/)
 [Twitter](http://twitter.com/nwind/)
 [微博](http://weibo.com/nwind/)
+[知乎](https://www.zhihu.com/people/wuduoyi)
 
+### 17.小芋头君
 
+[个人主页](http://www.html-js.com)，[大搜车前端](http://f2e.souche.com/blog/)负责人，颜文字app作者，[前端乱炖](http://www.html-js.com/)创始人。
+联系方式：
+[微博](http://weibo.com/676588498)
+[知乎](https://www.zhihu.com/people/li-shou-xin)
+[Github](https://github.com/xinyu198736)
+[邮箱](xinyu198736@gmail.com)
 
+### 18.林建锋（sofish）
+
+[个人主页](https://sofi.sh/)，国内资深前端开发工程师，Web 标准布道者，前支付宝前端开发部 CSS 样式库负责人。Trimidea 创始人，目前就职饿了么。
+联系方式：
+[微博](http://weibo.com/sofish)
+[知乎](https://www.zhihu.com/people/sofish)
+[Github](https://github.com/sofish)
+[邮箱](sofish@icloud.com)
 
 ### 18.周晓楷 Helkyle
 w3cTrain成员
