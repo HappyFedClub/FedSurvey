@@ -134,10 +134,10 @@ getData();
 </head>
 
 <body>
-    <? printSurvey(); ?>
+    <?php printSurvey(); ?>
     <section class="content">
         <form action="index.php" method="post">
-            <? printSurveyQestion(); ?>
+            <?php printSurveyQestion(); ?>
             <div class="result">
                 <input type="submit" id="submit" disabled name="submit" onlick="" class="button" style="display:none;">
                 <label for="submit" class="button">请耐心填完！</label>

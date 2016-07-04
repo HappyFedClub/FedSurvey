@@ -23,11 +23,13 @@
 - 搜集[访谈对象](master.md)（王海庆负责，国外20+ 国内30+）
 - 准备调查问卷题目（周冰婕、单超艺、郑爱萍负责，15-20左右，多多益善）
 - 确定[访谈题目](interview.md)（王瑶、尹飞燕、徐道聪负责，5-10左右，多多益善）
-- 制作[调查问卷网页](//happyfedclub.github.io/FedSurvey/questionnaire3/index.html)（江俊杰、鲁好德负责，至少实现题目呈现、结果数据分析两个页面）
+- 制作[调查问卷网页](//happyfedclub.github.io/FedSurvey/web/static/questionnaire3/index.html)（江俊杰、鲁好德负责，至少实现题目呈现、结果数据分析两个页面）
 - 书写访谈信（赵凯峰、谢秀提负责，调查问卷引言、英文牛人访谈信、国内牛人访谈信）
 
 ### 2. 实施阶段(7.1-7.31)
 
+- 最终调查问卷[静态版](/happyfedclub.github.io/FedSurvey/web/static/q/index.html)
+- 最终调查问卷[服务器]()
 - 每个同学至少访谈2位国外牛人，3位国内牛人，联系4位从业者填写调查问卷（从事前端的亲友等）
 
 ### 3. 总结阶段(8.1-8.10)

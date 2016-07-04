@@ -26,12 +26,12 @@ function printSurvey() {
                 	{$survey['welcome']}
                 	<p>感谢您的参与，共有{$number}位同仁参与了调查，调查结果分析如下。</p>
                 	<div class='link'>
-		                <a href='result.php?chartType=0' class='button'>饼图</a>
-		                <a href='result.php?chartType=1' class='button'>漏斗图1</a>
-		                <a href='result.php?chartType=2' class='button'>漏斗图2</a>
-		                <a href='result.php?chartType=3' class='button'>漏斗图3</a>
-		                <a href='result.php?chartType=4' class='button'>柱图</a>
-		                <a href='result.php?chartType=5' class='button'>雷达图</a>
+		                <a href='result.php?chartType=1' class='button'>饼图</a>
+		                <a href='result.php?chartType=2' class='button'>漏斗图1</a>
+		                <a href='result.php?chartType=3' class='button'>漏斗图2</a>
+		                <a href='result.php?chartType=4' class='button'>漏斗图3</a>
+		                <a href='result.php?chartType=5' class='button'>柱图</a>
+		                <a href='result.php?chartType=6' class='button'>雷达图</a>
 		                <a href='result.php' class='button'>随机</a>
 		            </div>
                 </div>
@@ -78,8 +78,8 @@ function printSurveyQestion() {
 </head>
 
 <body class="resultPage">
-    <? printSurvey(); ?>
-    <? printSurveyQestion(); ?>
+    <?php printSurvey(); ?>
+    <?php printSurveyQestion(); ?>
     <footer>
         <p>
             浙江邮电职业技术学院<a class="background-slide" href="https://github.com/HappyFedClub" target="_blank">前端开发俱乐部</a>版权所有
@@ -92,6 +92,7 @@ function printSurveyQestion() {
     	<?php 
     		
     		$chartType=!empty($_GET['chartType'])?$_GET['chartType']:-1;
+//			echo $chartType;
     		
 	   		global $db;
 			global $number;
@@ -111,11 +112,6 @@ function printSurveyQestion() {
 				$answers=$db->get('answers');
 				
 				$strpie="option{$qid} = {
-		            title : {
-		                text: '{$qtitle}',
-		                x:'center',
-                		y:'center'
-		            },
 		            tooltip : {
 		                trigger: 'item',
 		                formatter: '{a} <br/>{b} : {c} ({d}%)'
@@ -139,8 +135,8 @@ function printSurveyQestion() {
 		                {
 		                    name: '{$qtitle}',
 		                    type: 'pie',
-		                    radius : '70%',
-                    		center: ['50%', '55%'],
+		                    radius : '60%',
+                    		center: ['50%', '50%'],
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -167,11 +163,6 @@ function printSurveyQestion() {
 		        };";
 				
 				$strfunnel="option{$qid} = {
-		            title : {
-		                text: '{$qtitle}',
-		                x:'center',
-                		y:'bottom'
-		            },
 		            tooltip : {
 		                trigger: 'item',
 		                formatter: '{a} <br/>{b} : {c} ({d}%)'
@@ -392,12 +383,7 @@ function printSurveyQestion() {
 		        };";
 		        
 		        $strbar="option{$qid} = {
-			        title : {
-			                text: '{$qtitle}',
-			                x:'center',
-	                		y:'center'
-			        },
-		            tooltip: {
+			        tooltip: {
 		                trigger: 'axis'
 		            },
 		            toolbox: {
@@ -475,8 +461,8 @@ function printSurveyQestion() {
 					}    
 			               
 		            $strradar.="],
-				            center: ['25%','40%'],
-				            radius: 80
+				            center: ['50%','50%'],
+				            radius: 140
 				        }
 				    ],
 		            series : [
@@ -512,8 +498,8 @@ function printSurveyQestion() {
 				
 				$typeArray=Array($strpie,$strfunnel,$strfunnel2,$strfunnel3,$strbar,$strradar);
 		        
-		        if($chartType<=5&&$chartType>=0){
-					echo $typeArray[$chartType];
+		        if( $chartType >= 1 && $chartType <= 6){
+					echo $typeArray[$chartType-1];
 				}else{
 					$arr=array();
   					$arr[]=rand(0,5);

@@ -429,6 +429,14 @@ footer {
 		left: -3rem;
 		font: 1.2rem/1.2 'Bonbon', 'Mrs Saint Delafield', Arial;
 	}
+	
+	.qList.necessary h3::after {
+		content: "【必答题】";
+		opacity: 0.2;
+		transition: opacity .5s;
+		font-size: 0.6rem;
+	}
+	
 	.list__item {
 		margin: 0 0 .2rem 0;
 		width: 100%;
@@ -447,6 +455,12 @@ footer {
 		right: 10px;
 		top: 10px;
 	}
+	
+	.resultPage .header .button{
+		width: 45%;
+		margin-top: 10px;
+	}
+	
 	.resultPage .chart {
 		width: 100%;
 	}
