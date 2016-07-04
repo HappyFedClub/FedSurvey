@@ -110,6 +110,7 @@ function printSurveyQestion() {
 				
 				$db -> where('qid',$qid);
 				$answers=$db->get('answers');
+				$answersCount=$db->count;
 				
 				$strpie="option{$qid} = {
 		            tooltip : {
@@ -191,6 +192,19 @@ function printSurveyQestion() {
 		                    left: 'center',
 		                    top: '10%',
 		                    sort: 'ascending',
+		                    label: {
+				                normal: {
+				                    position: 'center',
+				                    textStyle: {
+				                    	color:'#000',
+				                    }
+				                },
+				                emphasis: {
+				                    textStyle: {
+				                    	fontWeight:'bold'
+				                    }
+				                }
+				            },
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -244,6 +258,14 @@ function printSurveyQestion() {
 		                    height: '40%',
 		                    left: 'center',
 		                    top: '10%',
+		                    label: {
+				                normal: {
+				                    position: 'center',
+				                    textStyle: {
+				                    	color:'#000',
+				                    }
+				                }
+				            },
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -274,6 +296,14 @@ function printSurveyQestion() {
 		                    left: 'center',
 		                    top: '50%',
 		                    sort: 'ascending',
+		                    label: {
+				                normal: {
+				                    position: 'center',
+				                    textStyle: {
+				                    	color:'#000',
+				                    }
+				                }
+				            },
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -328,6 +358,14 @@ function printSurveyQestion() {
 		                    left: 'center',
 		                    top: '10%',
 		                    sort: 'ascending',
+		                    label: {
+				                normal: {
+				                    position: 'center',
+				                    textStyle: {
+				                    	color:'#000',
+				                    }
+				                }
+				            },
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -357,6 +395,14 @@ function printSurveyQestion() {
 		                    height: '40%',
 		                    left: 'center',
 		                    top: '50%',
+		                    label: {
+				                normal: {
+				                    position: 'center',
+				                    textStyle:{
+				                    	color:'#000',
+				                    }
+				                }
+				            },
 		                    data:[";
 				             foreach ($answers as $a) {
 								$aid=$a['id'];
@@ -496,6 +542,10 @@ function printSurveyQestion() {
 		            ]
 		        };";
 				
+				if($answersCount>6){
+					$strfunnel3=$strfunnel2=$strfunnel;
+				}
+				
 				$typeArray=Array($strpie,$strfunnel,$strfunnel2,$strfunnel3,$strbar,$strradar);
 		        
 		        if( $chartType >= 1 && $chartType <= 6){
@@ -517,12 +567,20 @@ function printSurveyQestion() {
                 orient: 'horizontal'
             }
         }
+        optionMobile2={
+        	legend: {
+                show:false,
+            }
+        }
        	
         $(".chart").each(function(index, el) {
             var chart=echarts.init(this);
             chart.setOption(eval('option'+(index+1)));
             if($(window).width()<768){
                 chart.setOption(optionMobile);
+            }
+            if(index==5||index==14||index==15){
+            	chart.setOption(optionMobile2);
             }
         });
     </script>
