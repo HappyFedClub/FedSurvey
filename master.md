@@ -73,6 +73,16 @@ Lebanon（黎巴嫩）。
 ### 1. 阮一峰
 
 ### 2. 玉伯
+![玉伯](http://n1.itc.cn/img8/wb/recom/2016/04/07/145999548497420148.JPEG)
+
+[个人主页](https://github.com/lifesinger/blog/issues),玉伯（王保平），淘宝前端类库 KISSY、前端模块化开发框架SeaJS、前端基础类库Arale的创始人。2003-2006 年，中科院物理所研究生，Fortran 与 C 程序员，喜爱实验模拟和数值计算。 2006-2008 年，在中科院软件所互联网实验室从事项目管理软件的研发，C# 与 Java 爱好者。 2008 年 4 月份加入淘宝，就职于 UED 部门。2009 年起，组建前端架构团队，在首页维护、全网性能优化、类库研发、知识沉淀、工具应用等方面取得了丰硕成果。
+
+联系方式：
+[微博](http://weibo.com/lifesinger)
+[邮箱](lifesinger@gmail.com)
+[知乎](https://www.zhihu.com/people/lifesinger)
+[Github](https://github.com/lifesinger)
+
 
 ### 3. 司徒正美
 
@@ -80,6 +90,25 @@ Lebanon（黎巴嫩）。
 ![CSS魔法](https://avatars1.githubusercontent.com/u/1231359?v=3&s=460)
 
 百姓网前端架构师，《CSS 揭秘》译者，微信公众号和微博都叫*CSS魔法*。
+
+### 5.朴灵
+[个人主页](http://diveintonode.org/),朴灵，真名田永强，文艺型码农，Node.js布道者。现就职于阿里巴巴数据平台，任资深工程师，著有《深入浅出Node.js》。他活跃于CNode社区，是线下会议NodeParty的组织者，同时也是JSConf China（沪JS、京JS，以及杭JS）的组织者之一。朴灵热爱开源，是多个Node.js模块的作者。名言： 叩首问路，码梦为生。
+
+联系方式：
+[微博](http://weibo.com/shyvo)
+[邮箱](shyvo1987@gmail.com)
+[知乎](https://www.zhihu.com/people/po-ling)
+[Github](https://github.com/JacksonTian)
+
+### 6.廖雪峰
+![廖雪峰](https://avatars0.githubusercontent.com/u/470058?v=3&s=460)
+
+[个人主页](http://www.liaoxuefeng.com/),技术作家，著有《Spring 2.0核心技术与最佳实践》。
+联系方式:
+[微博](http://weibo.com/liaoxuefeng)
+[邮箱](askxuefeng@gmail.com)
+[知乎](https://www.zhihu.com/people/liaoxuefeng)
+[Github](https://github.com/michaelliao)
 
 
 ### 5. 大漠
@@ -138,7 +167,7 @@ Lebanon（黎巴嫩）。
 [Twitter](http://twitter.com/nwind/)
 [微博](http://weibo.com/nwind/)
 
-### 17.廖雪峰
+
 
 
 ### 18.周晓楷 Helkyle
@@ -152,8 +181,10 @@ w3cTrain成员
 ### 19.尤小右
 ![尤小右](https://avatars3.githubusercontent.com/u/499550?v=3&s=460)
 
-[个人主页](http://evanyou.me/)
+[个人主页](http://evanyou.me/),本名尤雨溪，目前在 Google Creative Lab 就职。vue.js 项目作者。
+联系方式：
 [微博](http://weibo.com/arttechdesign)
+[知乎](https://www.zhihu.com/people/evanyou)
 [Twitter](https://twitter.com/youyuxi)
 [Github](https://github.com/yyx990803)
 
